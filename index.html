@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Class Management App</title>
+
+        <!-- Bootstrap CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="css/fonts.css">
+
+        <!-- Custom CSS-->
+        <link href="css/main.css" rel="stylesheet" />
+
+    </head>
+    <body class="h-100 py-5">
+
+      <!-- Add class modal -->
+      <div class="modal fade" id="add-class-modal" tabindex="-1" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title">ADD NEW CLASS</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+               <form>
+                  <div class="d-flex form-pair">
+                     <label class="label " for="email">DEPARTMENT</label>
+
+                     <div class="custom-select me-3">
+   
+                        <select id="languageFilter">
+                           <option value="#">ALL DEPARTMENTS</option>
+                           <option value="#">ALL DEPARTMENTS</option>
+                           <option value="#">ALL DEPARTMENTS</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="d-flex form-pair">
+                     <label class="label " for="email">NAME</label>
+
+                     <input name="email" type="email" class="input">
+                  </div>
+                  <div class="d-flex form-pair">
+                     <label class="label " for="email">INSTRUCTOR</label>
+
+                     <div class="custom-select me-3">
+   
+                        <select id="languageFilter">
+                           <option value="#">ALL INSTRUCTORS</option>
+                           <option value="#">ALL INSTRUCTORS</option>
+                           <option value="#">ALL INSTRUCTORS</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="d-flex form-pair">
+                     <label class="label " for="email">TEAM LEAD</label>
+
+                     <div class="custom-select me-3">
+   
+                        <select id="languageFilter">
+                           <option value="#">ALL TEAM LEADERS</option>
+                           <option value="#">ALL TEAM LEADERS</option>
+                           <option value="#">ALL TEAM LEADERS</option>
+                        </select>
+                     </div>
+                  </div>
+
+               </form>
+
+               <div class="dotted-container active">
+
+                  <div class="dotted-name">STUDENTS</div>
+
+                  <div class="d-flex mb-3 mt-2">
+                     <div class="custom-select me-3">
+   
+                        <select id="languageFilter">
+                           <option value="#">ALL DEPARTMENTS</option>
+                           <option value="#">ALL DEPARTMENTS</option>
+                           <option value="#">ALL DEPARTMENTS</option>
+                        </select>
+                     </div>
+
+                     <div class="search-box d-flex ms-auto">
+                        <div class="search-btn">
+                           <img src="assets/search.svg" alt="search icon">
+                        </div>
+                        <input type="text" class="input" placeholder="search">
+                     </div>
+
+
+                  </div>
+                   <!-- Table -->
+                  <div class="custom-table">
+      
+                     <!-- Table head -->
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           
+                        </div>
+                        <div class="table-column">
+                           <p>NAME</p>
+                           <div class="d-flex flex-column">
+                              <div class="sort-btn sort-btn-up"></div>
+                              <div class="sort-btn sort-btn-down"></div>
+                           </div>
+                        </div>
+                        <div class="table-column">
+                           <p>EMAIL</p>
+                           <div class="d-flex flex-column">
+                              <div class="sort-btn sort-btn-up"></div>
+                              <div class="sort-btn sort-btn-down"></div>
+                           </div>
+                        </div>
+                        <div class="table-column">
+                           <p>TERM</p>
+                           <div class="d-flex flex-column">
+                              <div class="sort-btn sort-btn-up"></div>
+                              <div class="sort-btn sort-btn-down"></div>
+                           </div>
+                        </div>
+                        <div class="table-column">
+                           <p>ROLE</p>
+                           <div class="d-flex flex-column">
+                              <div class="sort-btn sort-btn-up"></div>
+                              <div class="sort-btn sort-btn-down"></div>
+                           </div>
+                        </div>
+                        
+                     </div>
+   
+                     <!-- Head & Body separator -->
+                     <div class="custom-table-x-line">
+                        <div class="first-col table-column">
+                        </div>
+                     
+                        <div class="table-column">
+                           
+                        </div>
+                        <div class="table-column">
+                           
+                        </div>
+                        <div class="table-column">
+                           
+                        </div>
+                       
+                     </div>
+                     
+                     <div class="custom-table-x-line">
+                        <div class="first-col table-column">
+                        </div>
+                        <div class="table-column">
+                           
+                        </div>
+                     
+                        <div class="table-column">
+                           
+                        </div>
+                        <div class="table-column">
+                           
+                        </div>
+                        
+                        
+                     </div>
+   
+                     <!-- Table body -->
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="edit-user">
+                              Allie Smith
+                           </p>                                    
+                        </div>
+                        <div class="table-column">
+                           <p>asmith@dlific.edu</p>
+                        </div>
+                        <div class="table-column">
+                           <p>PrgX ‘21</p>
+                        </div>
+                        <div class="table-column">
+                           <p>Student</p>
+                        </div>
+                        
+                     </div>
+                     
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="edit-user">
+   
+                           </p>                                    
+                        </div>
+                       
+                        <div class="table-column">
+                           
+                        </div>
+                        <div class="table-column">
+                           
+                        </div>
+                        
+                        
+                     </div>
+   
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="edit-user">
+   
+                           </p>                                    
+                        </div>
+                       
+                        <div class="table-column">
+                           
+                        </div>
+                        <div class="table-column">
+                           
+                        </div>
+                                            
+                     </div>
+   
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="edit-user">
+   
+                           </p>                                    
+                        </div>
+                        
+                        <div class="table-column">
+                           
+                        </div>
+                        
+                        <div class="table-column">
+                           
+                        </div>
+                        
+                     </div>
+   
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="edit-user">
+   
+                           </p>                                    
+                        </div>
+                      
+                        <div class="table-column">
+                           
+                        </div>
+                        <div class="table-column">
+                           
+                        </div>
+                        
+                     </div>
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="edit-user">
+   
+                           </p>                                    
+                        </div>
+                  
+                        <div class="table-column">
+                           
+                        </div>
+                        <div class="table-column">
+                           
+                        </div>
+                        
+                     </div>
+   
+                   </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="nv-container h-100">
+
+          <div class="d-flex h-100">
+  
+              <!-- Sidebar-->
+              <div class="h-100 me-5">
+                 
+                  <div class="list-group list-group-flush">
+  
+                    <!-- Singular Tab -->
+                    <div class="dotted-container">
+
+                       <div class="dotted-line"></div>
+
+  
+                       <div class="main-nav-item p-2">
+   
+                          <h2 class="main-nav-tag">HOME</h2>
+   
+                           <ul class="tab-options">
+                              
+                           </ul>
+                       </div>
+                    </div>
+  
+                    <div class="dotted-container active">
+
+                     <div class="dotted-line"></div>
+  
+                       <div id="users-toggler" class="main-nav-item p-2">
+   
+                          <h2 class="main-nav-tag">USERS</h2>
+   
+                           <ul class="tab-options">
+                              <li id="view-users-toggler" class="tab-option">VIEW ALL</li>
+                              <li id="add-user-toggler" class="tab-option">ADD NEW</li>
+                              <li id="manage-classes-toggler" class="tab-option">MANAGE CLASSES</li>
+                              <li id="manage-tags-toggler" class="tab-option">MANAGE TAGS</li>
+                           </ul>
+                       </div>
+
+                    </div>
+  
+                    <div class="dotted-container">
+
+                       <div class="dotted-line"></div>
+
+  
+                       <div id="teaching-toggler" class="main-nav-item p-2">
+   
+                          <h2  class="main-nav-tag">TEACHING</h2>
+   
+                           <ul class="tab-options">
+                              <li class="tab-option">MAYA LINGO</li>
+                    
+                           </ul>
+                       </div>
+                    </div>
+  
+                    <div class="dotted-container">
+
+                       <div class="dotted-line"></div>
+
+  
+                       <div class="main-nav-item p-2">
+   
+                          <h2 class="main-nav-tag">METRICS</h2>
+   
+                           <ul class="tab-options">
+                             
+                           </ul>
+                       </div>
+                    </div>
+  
+                    <div class="dotted-container">
+
+                       <div class="dotted-line"></div>
+
+  
+                       <div class="main-nav-item p-2">
+   
+                          <h2 class="main-nav-tag">TABLES</h2>
+   
+                           <ul class="tab-options">
+                              
+                           </ul>
+                       </div>
+                    </div>
+
+                    <div class="dotted-container">
+
+                       <div class="dotted-line"></div>
+
+  
+                       <div class="main-nav-item p-2">
+   
+                          <h2 class="main-nav-tag">SUPPORT</h2>
+   
+                           <ul class="tab-options">
+                              
+                           </ul>
+                       </div>
+                    </div>
+                  </div>
+              </div>
+  
+              <!-- Page content wrapper-->
+              <div class="page-content-wrapper">
+                      
+                  <!-- USERS TAB -->
+                    <div class="main-content" id="users">
+
+
+                     <!-- View users tab -->
+                     <div class="dotted-content-container" id="view-users">
+
+                        <div class="secondary-tab users-secondary" >
+   
+                           <h1 class="main-header">USERS</h1>
+      
+                           <a href="#" class="btn mb-3">ADD NEW</a>
+      
+                           <!-- Filters -->
+                           <div class="d-flex mb-3">
+      
+                              <!-- Language filter -->
+                              <div class="custom-select me-3">
+   
+                                 <select id="languageFilter">
+                                    <option value="#">ALL LANGUAGES</option>
+                                    <option value="#">ALL LANGUAGES</option>
+                                    <option value="#">ALL LANGUAGES</option>
+                                 </select>
+                              </div>
+   
+                              
+      
+                              <!-- Term filter -->
+                              <div class="custom-select">
+   
+                                 <select id="termFilter">
+                                    <option value="#">ALL TERMS</option>
+                                 </select>
+                              </div>
+      
+                              <div class="search-box d-flex ms-auto">
+                                 <div class="search-btn">
+                                    <img src="assets/search.svg" alt="search icon">
+                                 </div>
+                                 <input type="text" class="input" placeholder="search">
+                              </div>
+                           </div>
+    
+                           <!-- Bulk actions -->
+                           <div class="custom-select mb-3">
+   
+                              <select id="bulkActions">
+                                <option value="#">BULK ACTIONS</option>
+                               </select>
+                           </div>
+   
+                            <!-- Table -->
+                            <div class="custom-table">
+   
+                              <!-- Table head -->
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    <p>NAME</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>EMAIL</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>TERM</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>TITLE</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>LAST LOGIN</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 
+                              </div>
+   
+                              <!-- Head & Body separator -->
+                              <div class="custom-table-x-line">
+                                 <div class="first-col table-column">
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              
+                              <div class="custom-table-x-line">
+                                 <div class="first-col table-column">
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+   
+                              <!-- Table body -->
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+                                       Mohammad Antar
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    <p>mantor@dliflc.edu</p>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>n/a</p>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>Instrucor L3</p>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>AUG 22-2020</p>
+                                 </div>
+                                 
+                              </div>
+                              
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+   
+                            </div>
+                        </div>
+                     </div>
+
+                     <!-- Manage classes tab -->
+                     <div class="dotted-content-container" id="manage-classes">
+
+                        <div class="secondary-tab users-secondary" >
+   
+                           <h1 class="main-header">MANAGE CLASSES</h1>
+      
+                           <a href="#" class="btn mb-3" data-bs-toggle="modal" data-bs-target="#add-class-modal">ADD NEW</a>
+      
+                           <!-- Filters -->
+                           <div class="d-flex mb-3">
+      
+                              <!-- Language filter -->
+                              <div class="custom-select me-3">
+   
+                                 <select id="languageFilter">
+                                    <option value="#">ALL LANGUAGES</option>
+                                    <option value="#">ALL LANGUAGES</option>
+                                    <option value="#">ALL LANGUAGES</option>
+                                 </select>
+                              </div>
+   
+                              
+      
+                              <!-- Term filter -->
+                              <div class="custom-select">
+   
+                                 <select id="termFilter">
+                                    <option value="#">ALL TERMS</option>
+                                 </select>
+                              </div>
+      
+                              <div class="search-box d-flex ms-auto">
+                                 <div class="search-btn">
+                                    <img src="assets/search.svg" alt="search icon">
+                                 </div>
+                                 <input type="text" class="input" placeholder="search">
+                              </div>
+                           </div>
+    
+                           <!-- Bulk actions -->
+                           <div class="custom-select mb-3">
+   
+                              <select id="bulkActions">
+                                <option value="#">BULK ACTIONS</option>
+                               </select>
+                           </div>
+   
+                            <!-- Table -->
+                            <div class="custom-table">
+   
+                              <!-- Table head -->
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    <p>NAME</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>LANGUAGE</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>TERM</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>INSTRUCTOR</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>STUDENTS</p>
+                                    <div class="d-flex flex-column">
+                                       <div class="sort-btn sort-btn-up"></div>
+                                       <div class="sort-btn sort-btn-down"></div>
+                                    </div>
+                                 </div>
+                                 
+                              </div>
+   
+                              <!-- Head & Body separator -->
+                              <div class="custom-table-x-line">
+                                 <div class="first-col table-column">
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              
+                              <div class="custom-table-x-line">
+                                 <div class="first-col table-column">
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+   
+                              <!-- Table body -->
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>
+                                       Egytian Arabic S3
+                                    </p>                                  
+                                 </div>
+                                 <div class="table-column">
+                                    <p>Arabic</p>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>Cohort Z ‘21</p>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>Mohammed Atar</p>
+                                 </div>
+                                 <div class="table-column">
+                                    <p>6</p>
+                                 </div>
+                                 
+                              </div>
+                              
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+                              <div class="custom-table-row">
+                                 <div class="first-col table-column">
+                                    <label class="checkbox-container">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                                 </div>
+                                 <div class="table-column">
+                                    <p class="edit-user">
+
+                                    </p>                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 <div class="table-column">
+                                    
+                                 </div>
+                                 
+                              </div>
+   
+                            </div>
+                        </div>
+                     </div>
+
+                     <!-- Add User tab -->
+                     <div class="dotted-content-container short-tab" id="add-user">
+
+                        <div class="secondary-tab users-secondary" >
+   
+                           <h1 class="main-header">ADD NEW USER</h1>
+                           
+                           <form>
+                              <div class="d-flex form-pair">
+                                 <label class="label " for="email">EMAIL</label>
+   
+                                 <input name="email" type="email" class="input">
+                              </div>
+                              <div class="d-flex form-pair">
+                                 <label class="label " for="name">FIRST NAME</label>
+   
+                                 <input name="name" type="text" class="input">
+                              </div>
+                              <div class="d-flex form-pair">
+                                 <label class="label " for="lName">LAST NAME</label>
+   
+                                 <input name="lName" type="email" class="input">
+                              </div>
+                              <div class="d-flex form-pair">
+                                 <label class="label " for="photo">PHOTO</label>
+   
+                                 <div class="img-input d-flex justify-content-center align-items-center">
+                                    <div class="user-photo me-3">
+                                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="70" height="70" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                          <line x1="18" y1="6" x2="6" y2="18" />
+                                          <line x1="6" y1="6" x2="18" y2="18" />
+                                        </svg>
+                                    </div>
+                                    <p class="edit-btn">EDIT</p>
+                                 </div>
+                              </div>
+                              <div class="d-flex form-pair">
+                                 <label class="label ">ROLE</label>
+   
+                                 <div class="custom-select">
+   
+                                    <select>
+                                       <option value="student">STUDENT</option>
+                                       <option value="instructor">INSTRUCTOR</option>
+                                       <option value="team-leader">TEAM LEADER</option>
+                                    </select>
+                                 </div>
+                              </div>
+   
+                              <div class="d-flex form-pair">
+                                 <label class="label" for="password">PASSWORD</label>
+   
+                                 <input name="password" type="password" class="input hidden me-3">
+                                 <div class="btn show-btn">SHOW</div>
+                              </div>
+   
+                              <div class="d-flex form-pair">
+                                 <label class="label " >TERM</label>
+   
+                                 <div class="custom-select">
+   
+                                    <select>
+                                       <option value="all-terms">ALL TERMS</option>
+                                    </select>
+                                 </div>
+                              </div>
+   
+                              <div class="d-flex form-pair">
+                                 <label class="label " >CLASS</label>
+   
+                                 <div class="custom-select">
+   
+                                    <select>
+                                       <option value="all-classes">ALL CLASSES</option>
+   
+                                    </select>
+                                 </div>
+                              </div>
+   
+                              <div class="d-flex form-pair align-items-center">
+                                 <label class="label " >NOTIFY</label>
+   
+                                 <label class="checkbox-container me-3">
+                                    <input type="checkbox">
+                                    <span class="checkmark mt-1"></span>
+                                  </label>
+   
+                                  <p class="text-muted pt-2">SEND EMAIL WITH LOGIN CREDENTIALS</p>
+                              </div>
+                              
+                              <div class="btn btn-light-custom mt-5">ADD</div>
+                           </form>
+                           
+                        </div>
+                     </div>
+
+                     <!-- Edit User tab -->
+                     <div class="dotted-content-container short-tab" id="edit-user">
+
+                        <div class="secondary-tab users-secondary" >
+   
+                           <h1 class="main-header">EDIT MOHAMMED ATAR</h1>
+                           
+                           <form>
+                              <div class="d-flex form-pair">
+                                 <label class="label " for="email">EMAIL</label>
+   
+                                 <input name="email" type="email" class="input">
+                              </div>
+                              <div class="d-flex form-pair">
+                                 <label class="label " for="name">FIRST NAME</label>
+   
+                                 <input name="name" type="text" class="input">
+                              </div>
+                              <div class="d-flex form-pair">
+                                 <label class="label " for="lName">LAST NAME</label>
+   
+                                 <input name="lName" type="email" class="input">
+                              </div>
+                              <div class="d-flex form-pair">
+                                 <label class="label " for="photo">PHOTO</label>
+   
+                                 <div class="img-input d-flex justify-content-center align-items-center">
+                                    <div class="user-photo me-3">
+                                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="70" height="70" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                          <line x1="18" y1="6" x2="6" y2="18" />
+                                          <line x1="6" y1="6" x2="18" y2="18" />
+                                        </svg>
+                                    </div>
+                                    <p class="edit-btn">EDIT</p>
+                                 </div>
+                              </div>
+                              <div class="d-flex form-pair">
+                                 <label class="label ">ROLE</label>
+   
+                                 <div class="custom-select">
+   
+                                    <select>
+                                       <option value="student">STUDENT</option>
+                                       <option value="instructor">INSTRUCTOR</option>
+                                       <option value="team-leader">TEAM LEADER</option>
+                                    </select>
+                                 </div>
+                              </div>
+   
+                              <div class="d-flex form-pair">
+                                 <label class="label" for="password">PASSWORD</label>
+   
+                                 <input name="password" type="password" class="input hidden me-3">
+                                 <div class="btn show-btn">SHOW</div>
+                              </div>
+   
+                              <div class="d-flex form-pair">
+                                 <label class="label " >TERM</label>
+   
+                                 <div class="custom-select">
+   
+                                    <select>
+                                       <option value="all-terms">ALL TERMS</option>
+                                    </select>
+                                 </div>
+                              </div>
+   
+                              <div class="d-flex form-pair">
+                                 <label class="label " >CLASS</label>
+   
+                                 <div class="custom-select">
+   
+                                    <select>
+                                       <option value="all-classes">ALL CLASSES</option>
+   
+                                    </select>
+                                 </div>
+                              </div>
+   
+                              <div class="d-flex form-pair align-items-center">
+                                 <label class="label " >NOTIFY</label>
+   
+                                 <label class="checkbox-container me-3">
+                                    <input type="checkbox">
+                                    <span class="checkmark mt-1"></span>
+                                  </label>
+   
+                                  <p class="text-muted pt-2">SEND EMAIL WITH LOGIN CREDENTIALS</p>
+                              </div>
+                              
+                              <div class="btn btn-light-custom mt-5">SAVE</div>
+                           </form>
+                           
+                        </div>
+                     </div>
+
+
+                 </div>
+  
+              </div>
+  
+          </div>
+       </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+        <script src="js/navigation.js"></script>
+        <script src="js/custom-select.js"></script>
+    </body>
+</html>
