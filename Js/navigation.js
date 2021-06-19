@@ -31,14 +31,23 @@ document.querySelectorAll(".tab-option").forEach(function(element){
    element.addEventListener('click', function(){
 
       // Close other tab options
-      document.querySelectorAll('.tab-option').forEach(function(e){
+      element.parentElement.querySelectorAll('.tab-option').forEach(function(e){
          e.classList.remove('active');
       });
 
       // Open tab options
       element.classList.add('active');
 
-      let tabCategory = '.dotted-content-container';
+      switch(element.parentElement.parentElement.id){
+
+         case 'users-toggler':
+            tabCategory = '.users-secondary';
+            break;
+
+         case 'teaching-toggler':
+            tabCategory = '.teaching-secondary';
+            break;
+      }
 
       switch(element.id){
 
@@ -56,6 +65,10 @@ document.querySelectorAll(".tab-option").forEach(function(element){
 
          case 'manage-tags-toggler':
             tabID = '#manage-tags';
+            break;
+
+         case '':
+            tabID = '#teaching-sub-tab';
             break;
       }
       
@@ -99,6 +112,18 @@ document.querySelectorAll(".edit-user").forEach(function(element){
       tabChange(tabCategory, tabID);
    })
 })
+
+document.querySelector("#add-user-btn").addEventListener('click', function(){
+
+      // Close other tab options
+      document.querySelectorAll('.tab-option').forEach(function(e){
+         e.classList.remove('active');
+      });
+
+      let tabCategory = '.dotted-content-container';
+      
+      tabChange(tabCategory, '#add-user');
+   })
 
 document.querySelector('.show-btn').addEventListener('click', function(){
    

@@ -90,12 +90,12 @@ ul{
    position: relative;
    display: none;
    padding: 0.5rem;
-   height: 100%;
+   min-height: 100%;
    border: white 1px dashed;
    background: $primary-color;
 }
 
-#manage-classes{
+#view-users{
    display: block;
 }
 
@@ -118,22 +118,42 @@ ul{
    display: none;
 }
 
+//Secondary tabs
 .secondary-tab{
    width: 100%;
    height: 100%;
    padding: 1rem;
-   padding-right: 5rem;
    background: #000;
+}
+
+#teaching-sub-tab{
+   display: block;
 }
 
 .main-content{
    min-height: 100%;
+   display: none;
+}
+
+#users{
+   display: none;
+}
+
+#teaching{
+   display: block;
 }
 
 .main-header{
    font-size: 2rem;
    margin-bottom: 2rem;
    letter-spacing: 0.5rem;
+}
+
+.secondary-header{
+   font-size: 1.3rem;
+   border-bottom: 1px solid white;
+   padding: 0.5rem 0;
+   margin-top: 1rem;
 }
 
 .nv-container{
@@ -353,6 +373,147 @@ ul{
 .edit-user{
    text-decoration: underline;
    cursor: pointer;
+}
+
+//Secondary table
+.table-secondary{
+   position: relative;
+   color: white;
+   margin-top: 5rem;
+
+   &-tag{
+      position: absolute;
+      display: inline-block;
+      top: -50px;
+      left: 0;
+
+      padding: .5rem 1rem;
+      font-weight: 700;
+      letter-spacing: 5px;
+
+      border: 1px solid white;
+      border-bottom: none;
+   }
+
+   &-row{
+      display: grid;
+      grid-template-columns: 4fr repeat(14, 1fr);
+      border: 1px solid white;
+      border-top: none;
+
+      &:first-child{
+         border-top: 1px solid white;
+      }
+
+      &:nth-child(even){
+         background: #2D2D2D;
+      }
+   }
+
+   &-head{
+      grid-template-columns: 2fr repeat(7, 1fr);
+      border-top: 1px solid white;
+      background: black !important;
+
+      &:hover .table-definitions{
+         display: block;
+      }
+
+      &.vocab-row{
+         grid-template-columns: 2fr repeat(5, 1fr);
+      }
+   }
+
+   &-x-row{
+      height: 6px;
+      overflow: hidden;
+      background: black !important;
+   }
+
+   &-first{
+      display: flex;
+      align-items: flex-end;
+      padding: .5rem;
+      border-right: 1px solid white;
+
+   }
+
+   &-cell{
+      border-right: 1px solid white;
+      text-align: center;
+      
+
+      & > *{
+         padding: 0.3rem;
+      }
+      
+      &:last-child{
+         border: none;
+      }
+   }
+}
+
+.vocab-row{
+   grid-template-columns: 4fr repeat(10, 1fr);
+}
+
+.vocab-head{
+   position: relative;
+}
+
+.table-body{
+   overflow-y: auto;
+   max-height: 600px;
+}
+
+//Definitions pop-up
+.table-definitions{
+   position: absolute;
+   display: none;
+   bottom: 20px;
+   left: 100px;
+   background: #242424;
+
+   width: 500px;
+
+   border: 1px solid white;
+}
+
+.definition-header{
+   padding: 0.7rem;
+   border-bottom: 1px solid white;
+   font-size: 0.7rem;
+   margin-bottom: 0;
+}
+
+.definition-pair{
+   display: grid;
+   grid-template-columns: 2fr 3fr;
+   grid-gap: 1.5rem;
+   border-bottom: 1px solid white;
+   padding: 1rem 0;
+
+   &:last-child{
+      border-bottom: none;
+   }
+}
+
+.split-head-bottom{
+   border-top: 1px solid white;
+   background: #787878;
+   color: black;
+   padding: 0;
+}
+
+.table-head-divider{
+   text-align: center;
+   width: 50%;
+   border-right: 1px solid white;
+   padding: 0.3rem;
+
+   &:last-child{
+      border: none;
+   }
 }
 
 // Side bar

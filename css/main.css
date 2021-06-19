@@ -82,12 +82,12 @@ ul {
   position: relative;
   display: none;
   padding: 0.5rem;
-  height: 100%;
+  min-height: 100%;
   border: white 1px dashed;
   background: #4F5223;
 }
 
-#manage-classes {
+#view-users {
   display: block;
 }
 
@@ -113,18 +113,37 @@ ul {
   width: 100%;
   height: 100%;
   padding: 1rem;
-  padding-right: 5rem;
   background: #000;
+}
+
+#teaching-sub-tab {
+  display: block;
 }
 
 .main-content {
   min-height: 100%;
+  display: none;
+}
+
+#users {
+  display: none;
+}
+
+#teaching {
+  display: block;
 }
 
 .main-header {
   font-size: 2rem;
   margin-bottom: 2rem;
   letter-spacing: 0.5rem;
+}
+
+.secondary-header {
+  font-size: 1.3rem;
+  border-bottom: 1px solid white;
+  padding: 0.5rem 0;
+  margin-top: 1rem;
 }
 
 .nv-container {
@@ -350,6 +369,150 @@ ul {
 .edit-user {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.table-secondary {
+  position: relative;
+  color: white;
+  margin-top: 5rem;
+}
+
+.table-secondary-tag {
+  position: absolute;
+  display: inline-block;
+  top: -50px;
+  left: 0;
+  padding: .5rem 1rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  border: 1px solid white;
+  border-bottom: none;
+}
+
+.table-secondary-row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 4fr (1fr)[14];
+      grid-template-columns: 4fr repeat(14, 1fr);
+  border: 1px solid white;
+  border-top: none;
+}
+
+.table-secondary-row:first-child {
+  border-top: 1px solid white;
+}
+
+.table-secondary-row:nth-child(even) {
+  background: #2D2D2D;
+}
+
+.table-secondary-head {
+  -ms-grid-columns: 2fr (1fr)[7];
+      grid-template-columns: 2fr repeat(7, 1fr);
+  border-top: 1px solid white;
+  background: black !important;
+}
+
+.table-secondary-head:hover .table-definitions {
+  display: block;
+}
+
+.table-secondary-head.vocab-row {
+  -ms-grid-columns: 2fr (1fr)[5];
+      grid-template-columns: 2fr repeat(5, 1fr);
+}
+
+.table-secondary-x-row {
+  height: 6px;
+  overflow: hidden;
+  background: black !important;
+}
+
+.table-secondary-first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: .5rem;
+  border-right: 1px solid white;
+}
+
+.table-secondary-cell {
+  border-right: 1px solid white;
+  text-align: center;
+}
+
+.table-secondary-cell > * {
+  padding: 0.3rem;
+}
+
+.table-secondary-cell:last-child {
+  border: none;
+}
+
+.vocab-row {
+  -ms-grid-columns: 4fr (1fr)[10];
+      grid-template-columns: 4fr repeat(10, 1fr);
+}
+
+.vocab-head {
+  position: relative;
+}
+
+.table-body {
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.table-definitions {
+  position: absolute;
+  display: none;
+  bottom: 20px;
+  left: 100px;
+  background: #242424;
+  width: 500px;
+  border: 1px solid white;
+}
+
+.definition-header {
+  padding: 0.7rem;
+  border-bottom: 1px solid white;
+  font-size: 0.7rem;
+  margin-bottom: 0;
+}
+
+.definition-pair {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 3fr;
+      grid-template-columns: 2fr 3fr;
+  grid-gap: 1.5rem;
+  border-bottom: 1px solid white;
+  padding: 1rem 0;
+}
+
+.definition-pair:last-child {
+  border-bottom: none;
+}
+
+.split-head-bottom {
+  border-top: 1px solid white;
+  background: #787878;
+  color: black;
+  padding: 0;
+}
+
+.table-head-divider {
+  text-align: center;
+  width: 50%;
+  border-right: 1px solid white;
+  padding: 0.3rem;
+}
+
+.table-head-divider:last-child {
+  border: none;
 }
 
 .main-nav-item {
