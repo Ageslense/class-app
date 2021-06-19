@@ -2,6 +2,15 @@ $primary-color:#4F5223;
 $secondary-color:#4F5223;
 
 
+// OPEN ON LOAD
+#users{
+   display: block;
+}
+
+#view-users{
+   display: block;
+}
+
 *{
    box-sizing: border-box;
    padding: 0;
@@ -95,9 +104,6 @@ ul{
    background: $primary-color;
 }
 
-#view-users{
-   display: block;
-}
 
 .short-tab{
    width: 50%;
@@ -133,14 +139,6 @@ ul{
 .main-content{
    min-height: 100%;
    display: none;
-}
-
-#users{
-   display: none;
-}
-
-#teaching{
-   display: block;
 }
 
 .main-header{

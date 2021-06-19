@@ -120,6 +120,8 @@ document.querySelector("#add-user-btn").addEventListener('click', function(){
          e.classList.remove('active');
       });
 
+      document.querySelector('#add-user-toggler').classList.add('active');
+
       let tabCategory = '.dotted-content-container';
       
       tabChange(tabCategory, '#add-user');
@@ -142,6 +144,23 @@ document.querySelector('.show-btn').addEventListener('click', function(){
          break;
    }
 
+})
+
+document.querySelector('#add-department').addEventListener('click', function(e){
+   console.log(e.target);
+
+   switch(e.target.innerHTML){
+
+      case 'ADD':
+         document.querySelector('.add-dept-input').classList.remove('hidden');
+         e.target.innerHTML = 'SAVE';
+         break;
+
+      case 'SAVE':
+         document.querySelector('.add-dept-input').classList.add('hidden');
+         e.target.innerHTML = 'ADD';
+         break;
+   }
 })
 
 function tabChange(tabCategory, tabID){
