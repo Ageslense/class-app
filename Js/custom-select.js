@@ -78,3 +78,41 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+// New custom select
+
+
+document.addEventListener("click", function (e) {
+  var level = 0;
+  
+  for (var element = e.target; element; element = element.parentNode) {
+
+    if(element != document){
+
+      if (element.classList.contains('custom-select-secondary')) {
+  
+        openSelect(e.target)
+        return;
+      }
+    }
+    level++;
+  }
+
+  closeSelect();
+});
+
+function closeSelect(){
+
+    document.querySelectorAll('.custom-select-options').forEach(function(e){
+      e.style.display = 'none';
+    
+    })
+  }
+
+function openSelect(element){
+
+  let select = element.querySelector('.custom-select-options')
+
+  select.style.display = 'block';
+
+  }

@@ -146,22 +146,22 @@ document.querySelector('.show-btn').addEventListener('click', function(){
 
 })
 
-document.querySelector('#add-department').addEventListener('click', function(e){
-   console.log(e.target);
+// document.querySelector('#add-department').addEventListener('click', function(e){
+//    console.log(e.target);
 
-   switch(e.target.innerHTML){
+//    switch(e.target.innerHTML){
 
-      case 'ADD':
-         document.querySelector('.add-dept-input').classList.remove('hidden');
-         e.target.innerHTML = 'SAVE';
-         break;
+//       case 'ADD':
+//          document.querySelector('.add-dept-input').classList.remove('hidden');
+//          e.target.innerHTML = 'SAVE';
+//          break;
 
-      case 'SAVE':
-         document.querySelector('.add-dept-input').classList.add('hidden');
-         e.target.innerHTML = 'ADD';
-         break;
-   }
-})
+//       case 'SAVE':
+//          document.querySelector('.add-dept-input').classList.add('hidden');
+//          e.target.innerHTML = 'ADD';
+//          break;
+//    }
+// })
 
 function tabChange(tabCategory, tabID){
    let primaryTabs = document.querySelectorAll(tabCategory);

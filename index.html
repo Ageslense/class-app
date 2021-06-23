@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Class Management App</title>
+        <title>Jedburgh</title>
 
         <!-- Bootstrap CSS-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -15,7 +15,7 @@
         <link href="css/main.css" rel="stylesheet" />
 
     </head>
-    <body class="h-100 py-5">
+    <body class="h-100">
 
       <!-- Add class modal -->
       <div class="modal fade" id="add-class-modal" tabindex="-1" aria-hidden="true">
@@ -28,20 +28,74 @@
              <div class="modal-body">
                <form>
                   <div class="d-flex form-pair">
-                     <label class="label " for="email">DEPARTMENT</label>
+                     <label class="label " for="department">DEPARTMENT</label>
 
-                     <div class="custom-select me-3">
+                     <div class="custom-select-secondary me-3">
+                        <p class="custom-select-tag">
+                           ALL DEPARTMENTS
+                        </p>
+                     
+                        <div class="custom-select-options">
+                           
+                           <div class="custom-select-option add-new-dept">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>ADD NEW</p>
+                           </div>
 
-                        <select id="languageFilter">
-                           <option value="#">ALL DEPARTMENTS</option>
-                           <option value="#">ALL DEPARTMENTS</option>
-                           <option value="#">ALL DEPARTMENTS</option>
-                        </select>
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>LINGUIST NEXT</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>URM</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>UMB</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>UMC</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>UMA</p>
+                           </div>
+                        </div>
                      </div>
-
+<!-- 
                      <div id="add-department" class="btn light-btn me-3">ADD</div>
 
-                     <input type="text" class="input hidden add-dept-input">
+                     <input type="text" class="input hidden add-dept-input"> -->
                   </div>
 
                   <div class="d-flex form-pair">
@@ -82,14 +136,23 @@
 
                   <div class="d-flex mb-3 mt-2">
 
-                     <div class="custom-select me-3">
+                     <div class="custom-select-secondary me-3">
 
-                        <select>
-                           <option value="#">ALL DEPARTMENTS</option>
-                           <option value="#">ALL DEPARTMENTS</option>
-                           <option value="#">ALL DEPARTMENTS</option>
-                        </select>
-
+                        <p class="custom-select-tag">
+                           ALL STUDENTS
+                        </p>
+                     
+                        <div class="custom-select-options">
+                           
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>Airman Allie</p>
+                           </div>
+                        </div>
                      </div>
 
                      <div class="search-box d-flex ms-auto">
@@ -183,7 +246,7 @@
                             </label>
                         </div>
                         <div class="table-column">
-                           <p class="edit-user">
+                           <p class="row-name">
                               Allie Smith
                            </p>
                         </div>
@@ -207,7 +270,7 @@
                             </label>
                         </div>
                         <div class="table-column">
-                           <p class="edit-user">
+                           <p class="row-name">
 
                            </p>
                         </div>
@@ -230,7 +293,7 @@
                             </label>
                         </div>
                         <div class="table-column">
-                           <p class="edit-user">
+                           <p class="row-name">
 
                            </p>
                         </div>
@@ -252,7 +315,7 @@
                             </label>
                         </div>
                         <div class="table-column">
-                           <p class="edit-user">
+                           <p class="row-name">
 
                            </p>
                         </div>
@@ -275,7 +338,7 @@
                             </label>
                         </div>
                         <div class="table-column">
-                           <p class="edit-user">
+                           <p class="row-name">
 
                            </p>
                         </div>
@@ -296,7 +359,7 @@
                             </label>
                         </div>
                         <div class="table-column">
-                           <p class="edit-user">
+                           <p class="row-name">
 
                            </p>
                         </div>
@@ -311,11 +374,391 @@
                      </div>
 
                    </div>
-               </div>
+
+                   
+                  </div>
+                  <div class="btn btn-light-custom mt-5">ADD</div>
              </div>
            </div>
          </div>
        </div>
+
+      <!-- Edit class modal -->
+      <div class="modal fade" id="edit-class-modal" tabindex="-1" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title">EDIT CLASS</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+               <form>
+                  <div class="d-flex form-pair">
+                     <label class="label " for="department">DEPARTMENT</label>
+
+                     <div class="custom-select-secondary me-3">
+                        <p class="custom-select-tag">
+                           ALL DEPARTMENTS
+                        </p>
+                     
+                        <div class="custom-select-options">
+                           
+                           <div class="custom-select-option add-new-dept">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>ADD NEW</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>LINGUIST NEXT</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>URM</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>UMB</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>UMC</p>
+                           </div>
+
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>UMA</p>
+                           </div>
+                        </div>
+                     </div>
+<!-- 
+                     <div id="add-department" class="btn light-btn me-3">ADD</div>
+
+                     <input type="text" class="input hidden add-dept-input"> -->
+                  </div>
+
+                  <div class="d-flex form-pair">
+                     <label class="label " for="email">NAME</label>
+
+                     <input name="email" type="email" class="input">
+                  </div>
+                  <div class="d-flex form-pair">
+                     <label class="label " for="email">INSTRUCTOR</label>
+
+                     <div class="custom-select me-3">
+
+                        <select id="languageFilter">
+                           <option value="#">ALL INSTRUCTORS</option>
+                           <option value="#">ALL INSTRUCTORS</option>
+                           <option value="#">ALL INSTRUCTORS</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="d-flex form-pair">
+                     <label class="label " for="email">TEAM LEAD</label>
+
+                     <div class="custom-select me-3">
+
+                        <select id="languageFilter">
+                           <option value="#">ALL TEAM LEADERS</option>
+                           <option value="#">ALL TEAM LEADERS</option>
+                           <option value="#">ALL TEAM LEADERS</option>
+                        </select>
+                     </div>
+                  </div>
+
+               </form>
+
+               <div class="dotted-container active">
+
+                  <div class="dotted-name">STUDENTS</div>
+
+                  <div class="d-flex mb-3 mt-2">
+
+                     <div class="custom-select-secondary me-3">
+
+                        <p class="custom-select-tag">
+                           ALL STUDENTS
+                        </p>
+                     
+                        <div class="custom-select-options">
+                           
+                           <div class="custom-select-option">
+                              <label class="checkbox-container me-3">
+                                 <input type="checkbox">
+                                 <span class="checkmark"></span>
+                               </label>
+                     
+                               <p>Airman Allie</p>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="search-box d-flex ms-auto">
+                        <div class="search-btn">
+                           <img src="assets/search.svg" alt="search icon">
+                        </div>
+                        <input type="text" class="input" placeholder="search">
+                     </div>
+
+
+                  </div>
+                   <!-- Table -->
+                  <div class="custom-table">
+
+                     <!-- Table head -->
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+
+                        </div>
+                        <div class="table-column">
+                           <p>NAME</p>
+                           <div class="d-flex flex-column">
+                              <div class="sort-btn sort-btn-up"></div>
+                              <div class="sort-btn sort-btn-down"></div>
+                           </div>
+                        </div>
+                        <div class="table-column">
+                           <p>EMAIL</p>
+                           <div class="d-flex flex-column">
+                              <div class="sort-btn sort-btn-up"></div>
+                              <div class="sort-btn sort-btn-down"></div>
+                           </div>
+                        </div>
+                        <div class="table-column">
+                           <p>TERM</p>
+                           <div class="d-flex flex-column">
+                              <div class="sort-btn sort-btn-up"></div>
+                              <div class="sort-btn sort-btn-down"></div>
+                           </div>
+                        </div>
+                        <div class="table-column">
+                           <p>ROLE</p>
+                           <div class="d-flex flex-column">
+                              <div class="sort-btn sort-btn-up"></div>
+                              <div class="sort-btn sort-btn-down"></div>
+                           </div>
+                        </div>
+
+                     </div>
+
+                     <!-- Head & Body separator -->
+                     <div class="custom-table-x-line">
+                        <div class="first-col table-column">
+                        </div>
+
+                        <div class="table-column">
+
+                        </div>
+                        <div class="table-column">
+
+                        </div>
+                        <div class="table-column">
+
+                        </div>
+
+                     </div>
+
+                     <div class="custom-table-x-line">
+                        <div class="first-col table-column">
+                        </div>
+                        <div class="table-column">
+
+                        </div>
+
+                        <div class="table-column">
+
+                        </div>
+                        <div class="table-column">
+
+                        </div>
+
+
+                     </div>
+
+                     <!-- Table body -->
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="row-name">
+                              Allie Smith
+                           </p>
+                        </div>
+                        <div class="table-column">
+                           <p>asmith@dlific.edu</p>
+                        </div>
+                        <div class="table-column">
+                           <p>PrgX ‘21</p>
+                        </div>
+                        <div class="table-column">
+                           <p>Student</p>
+                        </div>
+
+                     </div>
+
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="row-name">
+
+                           </p>
+                        </div>
+
+                        <div class="table-column">
+
+                        </div>
+                        <div class="table-column">
+
+                        </div>
+
+
+                     </div>
+
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="row-name">
+
+                           </p>
+                        </div>
+
+                        <div class="table-column">
+
+                        </div>
+                        <div class="table-column">
+
+                        </div>
+
+                     </div>
+
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="row-name">
+
+                           </p>
+                        </div>
+
+                        <div class="table-column">
+
+                        </div>
+
+                        <div class="table-column">
+
+                        </div>
+
+                     </div>
+
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="row-name">
+
+                           </p>
+                        </div>
+
+                        <div class="table-column">
+
+                        </div>
+                        <div class="table-column">
+
+                        </div>
+
+                     </div>
+                     <div class="custom-table-row">
+                        <div class="first-col table-column">
+                           <label class="checkbox-container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="table-column">
+                           <p class="row-name">
+
+                           </p>
+                        </div>
+
+                        <div class="table-column">
+
+                        </div>
+                        <div class="table-column">
+
+                        </div>
+
+                     </div>
+
+                   </div>
+
+                   
+                  </div>
+                  <div class="btn btn-light-custom mt-5">SAVE</div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="page-head d-flex pt-4">
+          <div class="head-logo  me-5 d-flex align-items-center justify-content-center">
+             <img src="assets/img/FullColor_TransparentBg_1280x1024_72dpi 3.png" alt="Maya Jedburgh" class="logo">
+          </div>
+
+          <div class="head-header ms-4 d-flex align-items-center justify-content-center">
+             <h1>WELCOME, <span class="user-name">BRENDAN THOMPSON</span></h1>
+          </div>
+       </div>
+
 
        <div class="nv-container h-100">
 
@@ -442,23 +885,89 @@
                            <div class="d-flex mb-3">
 
                               <!-- Language filter -->
-                              <div class="custom-select me-3">
+                              <div class="custom-select-secondary me-3">
+                                 <p class="custom-select-tag">
+                                    ALL LANGUAGES
+                                 </p>
 
-                                 <select id="languageFilter">
-                                    <option value="#">ALL LANGUAGES</option>
-                                    <option value="#">ENGLISH</option>
-                                    <option value="#">ARABIC</option>
-                                 </select>
+                                 <div class="custom-select-options">
+
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+
+                                        <p>ARABIC MODERN STANDARD</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+
+                                        <p>ARABIC EGYPTIAN</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+
+                                        <p>ENGLISH</p>
+                                    </div>
+                                 </div>
                               </div>
 
-
-
                               <!-- Term filter -->
-                              <div class="custom-select">
-
-                                 <select id="termFilter">
-                                    <option value="#">ALL TERMS</option>
-                                 </select>
+                              <div class="custom-select-secondary me-3">
+                                 <p class="custom-select-tag">
+                                    ALL TERMS
+                                 </p>
+                              
+                                 <div class="custom-select-options">
+                                    
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>1.21</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>2.21</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>3.21</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>4.21</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>1.22</p>
+                                    </div>
+                                 </div>
                               </div>
 
                               <div class="search-box d-flex ms-auto">
@@ -470,11 +979,31 @@
                            </div>
 
                            <!-- Bulk actions -->
-                           <div class="custom-select mb-3">
+                           <div class="custom-select-secondary mb-3">
+                              <p class="custom-select-tag">
+                                 BULK ACTIONS
+                              </p>
+                           
+                              <div class="custom-select-options">
+                                 
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                           
+                                     <p>CHECK ALL</p>
+                                 </div>
 
-                              <select id="bulkActions">
-                                <option value="#">BULK ACTIONS</option>
-                               </select>
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                           
+                                     <p>CLEAR ALL</p>
+                                 </div>
+                              </div>
                            </div>
 
                             <!-- Table -->
@@ -566,6 +1095,9 @@
 
                               </div>
 
+                              <div class="table-body">
+
+                              </div>
                               <!-- Table body -->
                               <div class="custom-table-row">
                                  <div class="first-col table-column">
@@ -575,7 +1107,7 @@
                                      </label>
                                  </div>
                                  <div class="table-column">
-                                    <p class="edit-user">
+                                    <p class="row-name edit-user">
                                        Mohammad Antar
                                     </p>
                                  </div>
@@ -602,7 +1134,7 @@
                                      </label>
                                  </div>
                                  <div class="table-column">
-                                    <p class="edit-user">
+                                    <p class="row-name">
 
                                     </p>
                                  </div>
@@ -628,7 +1160,7 @@
                                      </label>
                                  </div>
                                  <div class="table-column">
-                                    <p class="edit-user">
+                                    <p class="row-name">
 
                                     </p>
                                  </div>
@@ -654,7 +1186,7 @@
                                      </label>
                                  </div>
                                  <div class="table-column">
-                                    <p class="edit-user">
+                                    <p class="row-name">
 
                                     </p>
                                  </div>
@@ -680,7 +1212,7 @@
                                      </label>
                                  </div>
                                  <div class="table-column">
-                                    <p class="edit-user">
+                                    <p class="row-name">
 
                                     </p>
                                  </div>
@@ -706,7 +1238,7 @@
                                      </label>
                                  </div>
                                  <div class="table-column">
-                                    <p class="edit-user">
+                                    <p class="row-name">
 
                                     </p>
                                  </div>
@@ -741,26 +1273,110 @@
                            <!-- Filters -->
                            <div class="d-flex mb-3">
 
-                              <!-- Language filter -->
-                              <div class="custom-select me-3">
+                              <!-- Department filter -->
+                              <div class="custom-select-secondary me-3">
+                                 <p class="custom-select-tag">
+                                    ALL DEPARTMENTS
+                                 </p>
+                              
+                                 <div class="custom-select-options">
+                                    
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>LINGUIST NEXT </p>
+                                    </div>
 
-                                 <select>
-                                    <option value="#">ALL LANGUAGES</option>
-                                    <option value="#">ALL LANGUAGES</option>
-                                    <option value="#">ALL LANGUAGES</option>
-                                 </select>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>URM</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>UMB</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>UMC</p>
+                                    </div>
+                                    <div class="custom-select-option">
+                                       <label class="checkbox-container me-3">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                              
+                                        <p>UMA</p>
+                                    </div>
+                                 </div>
                               </div>
-
-
 
                               <!-- Term filter -->
-                              <div class="custom-select">
-
-                                 <select id="termFilter">
-                                    <option value="#">ALL TERMS</option>
-                                 </select>
+                              <div class="custom-select-secondary me-3">
+                              <p class="custom-select-tag">
+                                 ALL TERMS
+                              </p>
+                           
+                              <div class="custom-select-options">
+                                 
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                       </label>
+                           
+                                       <p>1.21</p>
+                                 </div>
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                       </label>
+                           
+                                       <p>2.21</p>
+                                 </div>
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                       </label>
+                           
+                                       <p>3.21</p>
+                                 </div>
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                       </label>
+                           
+                                       <p>4.21</p>
+                                 </div>
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                       </label>
+                           
+                                       <p>1.22</p>
+                                 </div>
                               </div>
+                           </div>
 
+                           <!-- Search box -->
                               <div class="search-box d-flex ms-auto">
                                  <div class="search-btn">
                                     <img src="assets/search.svg" alt="search icon">
@@ -770,11 +1386,31 @@
                            </div>
 
                            <!-- Bulk actions -->
-                           <div class="custom-select mb-3">
+                           <div class="custom-select-secondary mb-3">
+                              <p class="custom-select-tag">
+                                 BULK ACTIONS
+                              </p>
+                           
+                              <div class="custom-select-options">
+                                 
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                           
+                                     <p>CHECK ALL</p>
+                                 </div>
 
-                              <select id="bulkActions">
-                                <option value="#">BULK ACTIONS</option>
-                               </select>
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                           
+                                     <p>CLEAR ALL</p>
+                                 </div>
+                              </div>
                            </div>
 
                             <!-- Table -->
@@ -867,160 +1503,33 @@
                               </div>
 
                               <!-- Table body -->
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p>
-                                       Egytian Arabic S3
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-                                    <p>Arabic</p>
-                                 </div>
-                                 <div class="table-column">
-                                    <p>Cohort Z ‘21</p>
-                                 </div>
-                                 <div class="table-column">
-                                    <p>Mohammed Atar</p>
-                                 </div>
-                                 <div class="table-column">
-                                    <p>6</p>
-                                 </div>
+                              <div class="table-body">
 
-                              </div>
-
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="edit-user">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
-                              </div>
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="edit-user">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
-                              </div>
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="edit-user">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
-                              </div>
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="edit-user">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
-                              </div>
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="edit-user">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
+                                 <div class="custom-table-row">
+                                    <div class="first-col table-column">
+                                       <label class="checkbox-container">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="table-column">
+                                       <p data-bs-toggle="modal" data-bs-target="#edit-class-modal" class="edit-class">
+                                          Egytian Arabic S3
+                                       </p>
+                                    </div>
+                                    <div class="table-column">
+                                       <p>Arabic</p>
+                                    </div>
+                                    <div class="table-column">
+                                       <p>Cohort Z ‘21</p>
+                                    </div>
+                                    <div class="table-column">
+                                       <p>Mohammed Atar</p>
+                                    </div>
+                                    <div class="table-column">
+                                       <p>6</p>
+                                    </div>
+   
                                  </div>
 
                               </div>
@@ -1064,14 +1573,16 @@
                                  <label class="label " for="photo">PHOTO</label>
 
                                  <div class="img-input d-flex justify-content-center align-items-center">
-                                    <div class="user-photo me-3">
+                                    <!-- <div class="user-photo me-3">
                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="70" height="70" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                           <line x1="18" y1="6" x2="6" y2="18" />
                                           <line x1="6" y1="6" x2="18" y2="18" />
                                         </svg>
-                                    </div>
-                                    <p class="edit-btn">EDIT</p>
+                                    </div> -->
+
+                                    <input class="edit-img" type="file" id="img" name="img" accept="image/*">
+
                                  </div>
                               </div>
 
@@ -1094,7 +1605,7 @@
                               <div class="d-flex form-pair">
                                  <label class="label" for="password">PASSWORD</label>
 
-                                 <input name="password" type="password" class="input hidden me-3">
+                                 <input name="password" type="text" class="input hidden me-3">
                                  <div class="btn show-btn">SHOW</div>
                               </div>
 
@@ -1106,6 +1617,11 @@
 
                                     <select>
                                        <option value="all-terms">ALL TERMS</option>
+                                       <option value="1.21">1.21</option>
+                                       <option value="2.21">2.21</option>
+                                       <option value="3.21">3.21</option>
+                                       <option value="4.21">4.21</option>
+                                       <option value="1.22">1.22</option>
                                     </select>
                                  </div>
                               </div>
@@ -1170,20 +1686,22 @@
 
                                  <input name="lName" type="email" class="input">
                               </div>
-
+                              
                               <!-- Photo -->
                               <div class="d-flex form-pair">
                                  <label class="label " for="photo">PHOTO</label>
 
                                  <div class="img-input d-flex justify-content-center align-items-center">
-                                    <div class="user-photo me-3">
+                                    <!-- <div class="user-photo me-3">
                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="70" height="70" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                           <line x1="18" y1="6" x2="6" y2="18" />
                                           <line x1="6" y1="6" x2="18" y2="18" />
                                         </svg>
-                                    </div>
-                                    <p class="edit-btn">EDIT</p>
+                                    </div> -->
+
+                                    <input class="edit-img" type="file" id="img" name="img" accept="image/*">
+
                                  </div>
                               </div>
 
@@ -1265,29 +1783,63 @@
 
                         <h1 class="main-header">MAYA LINGO</h1>
 
-                        <a href="#" class="btn mb-3">ADD NEW</a>
-
                         <!-- Filters -->
                         <div class="d-flex mb-3">
 
-                           <!-- Language filter -->
-                           <div class="custom-select me-3">
+                           <!-- Class filter -->
+                           <div class="custom-select-secondary me-3">
+                              <p class="custom-select-tag">
+                                 ALL CLASSES
+                              </p>
+                           
+                              <div class="custom-select-options">
+                                 
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                           
+                                     <p>CLASS A</p>
+                                 </div>
 
-                              <select id="classesFilter">
-                                 <option value="#">ALL CLASSES</option>
-                                 <option value="#">ALL CLASSES</option>
-                                 <option value="#">ALL CLASSES</option>
-                              </select>
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                           
+                                     <p>CLASS B</p>
+                                 </div>
+
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                           
+                                     <p>CLASS C</p>
+                                 </div>
+                              </div>
                            </div>
 
-
-
-                           <!-- Term filter -->
-                           <div class="custom-select">
-
-                              <select id="studentsFilter">
-                                 <option value="#">ALL STUDENTS</option>
-                              </select>
+                           <!-- Student filter -->
+                           <div class="custom-select-secondary me-3">
+                              <p class="custom-select-tag">
+                                 ALL STUDENTS
+                              </p>
+                           
+                              <div class="custom-select-options">
+                                 
+                                 <div class="custom-select-option">
+                                    <label class="checkbox-container me-3">
+                                       <input type="checkbox">
+                                       <span class="checkmark"></span>
+                                     </label>
+                           
+                                     <p>ALLIE SMITH</p>
+                                 </div>
+                              </div>
                            </div>
 
                            <div class="search-box d-flex ms-auto">
@@ -1560,7 +2112,7 @@
                               <div class="table-secondary-row">
    
                                  <div class="table-secondary-first">
-                                    <p class="edit-user">Allie Smith</p>
+                                    <p class="row-name">Allie Smith</p>
                                  </div>
    
                                  <div class="d-flex flex-column table-secondary-cell">
@@ -1851,7 +2403,7 @@
                               <div class="table-secondary-row">
    
                                  <div class="table-secondary-first">
-                                    <p class="edit-user">Allie Smith</p>
+                                    <p class="row-name">Allie Smith</p>
                                  </div>
    
                                  <div class="d-flex flex-column table-secondary-cell">
@@ -2152,7 +2704,7 @@
                               <div class="table-secondary-row vocab-row">
    
                                  <div class="table-secondary-first">
-                                    <p class="edit-user">Allie Smith</p>
+                                    <p class="row-name">Allie Smith</p>
                                  </div>
    
                                  <div class="d-flex flex-column table-secondary-cell">

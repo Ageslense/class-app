@@ -179,10 +179,70 @@ ul{
 }
 
 // Custom Select
+.custom-select-secondary{
+   position: relative;
+   width: 200px;
+
+   color: #ffffff;
+   padding: 0.2rem 1rem;
+   font-size: 0.8rem;
+
+   border: 1px solid white;
+   cursor: pointer;
+
+   &:after {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      content: '>';
+      top: 4px;
+      right: 4px;
+      width: 26px;
+      height: 20px;
+      border-bottom: 0.5px solid white;
+   
+      transform: scaleX(2) rotate(90deg);
+      
+   
+    }
+}
+
+.custom-select-options{
+   position: absolute;
+   display: none;
+   left: 0;
+   top: 100%;
+   width: 100%;
+   background: #242424;
+   padding: 0.2rem 1rem;
+   border: 1px solid white;
+   border-top: none;
+
+   z-index: 999;
+
+   font-size: 0.6rem;  
+}
+
+.custom-select-option{
+   display: flex;
+   padding: 3px 0;
+}
+
+.add-new-dept{
+   border-bottom: 1px solid white;
+}
+
 /* The container must be positioned relative: */
 .custom-select {
    position: relative;
-   width: 175px;
+   width: 200px;
+
+   &-tag{
+      pointer-events: none;
+   }
+
+   
  }
  
  .custom-select select {
@@ -213,18 +273,22 @@ ul{
  }
  
  /* style the items (options), including the selected item: */
- .select-items div,.select-selected {
+.select-selected {
    color: #ffffff;
    padding: 0.2rem 1rem;
    font-size: 0.8rem;
-   width: 175px;
+   width: 200px;
 
    border: 1px solid white;
    cursor: pointer;
  }
 
  .select-items div{
-    border-top: none;
+   //  background: #242424;
+   padding: 0.2rem 1rem;
+   font-size: 0.8rem;
+   border-top: none;
+
  }
  
  /* Style items (options): */
@@ -234,6 +298,7 @@ ul{
    left: 0;
    right: 0;
    z-index: 99;
+   border: 1px solid;
  }
  
  /* Hide the items when the select box is closed: */
@@ -251,6 +316,7 @@ ul{
    border: 1px solid white;
    border-radius: 0;
    padding-left: .5rem;
+   width: 200px;
 
    &:focus-visible{
       outline: none;
@@ -290,6 +356,29 @@ ul{
    width: 1rem;
    background-color: black;
    border: 1px solid white;
+ }
+
+ /* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+   content: "";
+   position: absolute;
+   display: none;
+ }
+ 
+ /* Show the checkmark when checked */
+ input:checked ~ .checkmark:after {
+   display: block;
+ }
+ 
+ /* Style the checkmark/indicator */
+ .checkmark:after {
+   left: 10px;
+   top: -9px;
+   width: 5px;
+   height: 10px;
+   -webkit-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   transform: rotate(45deg);
  }
  
  /* On mouse-over, add a grey background color */
@@ -368,9 +457,13 @@ ul{
    }
 }
 
-.edit-user{
+.row-name{
    text-decoration: underline;
+}
+
+.edit-user, .edit-class{
    cursor: pointer;
+   text-decoration: underline;
 }
 
 //Secondary table
@@ -554,20 +647,22 @@ ul{
    width: 100%;
 }
 
+//Page head{
+.head-logo{
+   width: 318px;
+
+   .logo{
+      height: 130px;
+   }
+}
+
+.head-header{
+   letter-spacing: 10px;
+}
+
 // Add users
 
-#add-user{
 
-   .custom-select{
-      width: 206px;
-   }
-
-   .select-items div,.select-selected {
-      width: 206px;
-    }
-
-    
-}
 
 .label{
    width: 150px;
@@ -594,17 +689,9 @@ ul{
       background: #242424;
    }
 
-   .custom-select{
-      width: 206px;
-   }
 
    .select-selected {
       background-color: #242424;
-      width: 206px;
-    }
-
-    .select-items div {
-      width: 206px;
     }
 
     .select-items {
