@@ -79,6 +79,16 @@ function closeAllSelect(elmnt) {
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
 
+document.querySelectorAll('.dropdown-btn').forEach(function(e){
+
+  e.addEventListener('click', function(){
+
+    console.log('hey man');
+
+    closeSelect()
+  })
+})
+
 // New custom select
 
 document.addEventListener("click", function (e) {
