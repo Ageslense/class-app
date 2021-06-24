@@ -155,7 +155,7 @@ ul{
 }
 
 .nv-container{
-   padding: 1rem;
+   padding: 0 1rem;
 }
 
 .text-muted{
@@ -209,6 +209,8 @@ ul{
 }
 
 .custom-select-options{
+   display: flex;
+   flex-direction: column;
    position: absolute;
    display: none;
    left: 0;
@@ -288,6 +290,7 @@ ul{
    padding: 0.2rem 1rem;
    font-size: 0.8rem;
    border-top: none;
+   cursor: pointer;
 
  }
  
@@ -320,6 +323,12 @@ ul{
 
    &:focus-visible{
       outline: none;
+   }
+
+   &-small{
+      width: auto;
+      font-size: 0.6rem;
+      height: 20px;
    }
 }
 
@@ -652,7 +661,7 @@ ul{
    width: 318px;
 
    .logo{
-      height: 130px;
+      height: 200px;
    }
 }
 
@@ -661,7 +670,6 @@ ul{
 }
 
 // Add users
-
 
 
 .label{

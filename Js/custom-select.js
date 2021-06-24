@@ -81,8 +81,8 @@ document.addEventListener("click", closeAllSelect);
 
 // New custom select
 
-
 document.addEventListener("click", function (e) {
+
   var level = 0;
   
   for (var element = e.target; element; element = element.parentNode) {
@@ -91,7 +91,7 @@ document.addEventListener("click", function (e) {
 
       if (element.classList.contains('custom-select-secondary')) {
   
-        openSelect(e.target)
+        openSelect(e.target);
         return;
       }
     }
@@ -113,6 +113,6 @@ function openSelect(element){
 
   let select = element.querySelector('.custom-select-options')
 
-  select.style.display = 'block';
+  select.style.display = 'flex';
 
   }

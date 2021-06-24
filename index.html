@@ -37,13 +37,19 @@
                      
                         <div class="custom-select-options">
                            
-                           <div class="custom-select-option add-new-dept">
-                              <label class="checkbox-container me-3">
-                                 <input type="checkbox">
-                                 <span class="checkmark"></span>
-                               </label>
-                     
-                               <p>ADD NEW</p>
+                           <div class="custom-select-option add-new-dept flex-column">
+                              <div class="d-flex">
+
+                                 <label class="checkbox-container me-3">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                        
+                                  <p class="show-btn">ADD NEW</p>
+                              </div>
+
+                              <input type="text" class="input input-small hidden my-1">
+
                            </div>
 
                            <div class="custom-select-option">
@@ -92,6 +98,8 @@
                            </div>
                         </div>
                      </div>
+
+                     
 <!-- 
                      <div id="add-department" class="btn light-btn me-3">ADD</div>
 
@@ -127,6 +135,18 @@
                         </select>
                      </div>
                   </div>
+                  <div class="d-flex form-pair">
+                     <label class="label " for="language">LANGUAGE</label>
+
+                     <div class="custom-select me-3">
+
+                        <select>
+                           <option value="#">ARABIC M. STANDARD</option>
+                           <option value="#">ARABIC EGYPTIAN</option>
+                           <option value="#">ENGLISH</option>
+                        </select>
+                     </div>
+                  </div>
 
                </form>
 
@@ -152,6 +172,8 @@
                      
                                <p>Airman Allie</p>
                            </div>
+
+                           <div class="align-self-end btn btn-light-custom">ADD</div>
                         </div>
                      </div>
 
@@ -494,6 +516,19 @@
                      </div>
                   </div>
 
+                  <div class="d-flex form-pair">
+                     <label class="label " for="language">LANGUAGE</label>
+
+                     <div class="custom-select me-3">
+
+                        <select>
+                           <option value="#">ARABIC M. STANDARD</option>
+                           <option value="#">ARABIC EGYPTIAN</option>
+                           <option value="#">ENGLISH</option>
+                        </select>
+                     </div>
+                  </div>
+
                </form>
 
                <div class="dotted-container active">
@@ -518,6 +553,8 @@
                      
                                <p>Airman Allie</p>
                            </div>
+
+                           <div class="align-self-end btn btn-light-custom">ADD</div>
                         </div>
                      </div>
 
@@ -749,7 +786,7 @@
          </div>
        </div>
 
-       <div class="page-head d-flex pt-4">
+       <div class="page-head d-flex">
           <div class="head-logo  me-5 d-flex align-items-center justify-content-center">
              <img src="assets/img/FullColor_TransparentBg_1280x1024_72dpi 3.png" alt="Maya Jedburgh" class="logo">
           </div>
@@ -920,54 +957,16 @@
                               </div>
 
                               <!-- Term filter -->
-                              <div class="custom-select-secondary me-3">
-                                 <p class="custom-select-tag">
-                                    ALL TERMS
-                                 </p>
-                              
-                                 <div class="custom-select-options">
-                                    
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>1.21</p>
-                                    </div>
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>2.21</p>
-                                    </div>
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>3.21</p>
-                                    </div>
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>4.21</p>
-                                    </div>
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>1.22</p>
-                                    </div>
-                                 </div>
+                              <div class="custom-select me-3">
+   
+                                 <select>
+                                    <option value="#">ALL TERMS</option>
+                                    <option value="1.21">1.21</option>
+                                    <option value="2.21">2.21</option>
+                                    <option value="3.21">3.21</option>
+                                    <option value="4.21">4.21</option>
+                                    <option value="1.22">1.22</option>
+                                 </select>
                               </div>
 
                               <div class="search-box d-flex ms-auto">
@@ -1274,107 +1273,30 @@
                            <div class="d-flex mb-3">
 
                               <!-- Department filter -->
-                              <div class="custom-select-secondary me-3">
-                                 <p class="custom-select-tag">
-                                    ALL DEPARTMENTS
-                                 </p>
-                              
-                                 <div class="custom-select-options">
-                                    
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>LINGUIST NEXT </p>
-                                    </div>
-
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>URM</p>
-                                    </div>
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>UMB</p>
-                                    </div>
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>UMC</p>
-                                    </div>
-                                    <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
-                                          <span class="checkmark"></span>
-                                        </label>
-                              
-                                        <p>UMA</p>
-                                    </div>
-                                 </div>
+                              <div class="custom-select me-3">
+   
+                                 <select>
+                                    <option value="#">ALL DEPARTMENTS</option>
+                                    <option value="#">LINGUIST NEXT </option>
+                                    <option value="#">URM</option>
+                                    <option value="#">UMB</option>
+                                    <option value="#">UMC</option>
+                                    <option value="#">UMA</option>
+                                 </select>
                               </div>
 
                               <!-- Term filter -->
-                              <div class="custom-select-secondary me-3">
-                              <p class="custom-select-tag">
-                                 ALL TERMS
-                              </p>
-                           
-                              <div class="custom-select-options">
-                                 
-                                 <div class="custom-select-option">
-                                    <label class="checkbox-container me-3">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                       </label>
-                           
-                                       <p>1.21</p>
-                                 </div>
-                                 <div class="custom-select-option">
-                                    <label class="checkbox-container me-3">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                       </label>
-                           
-                                       <p>2.21</p>
-                                 </div>
-                                 <div class="custom-select-option">
-                                    <label class="checkbox-container me-3">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                       </label>
-                           
-                                       <p>3.21</p>
-                                 </div>
-                                 <div class="custom-select-option">
-                                    <label class="checkbox-container me-3">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                       </label>
-                           
-                                       <p>4.21</p>
-                                 </div>
-                                 <div class="custom-select-option">
-                                    <label class="checkbox-container me-3">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                       </label>
-                           
-                                       <p>1.22</p>
-                                 </div>
+                              <div class="custom-select me-3">
+   
+                                 <select>
+                                    <option value="#">ALL TERMS</option>
+                                    <option value="1.21">1.21</option>
+                                    <option value="2.21">2.21</option>
+                                    <option value="3.21">3.21</option>
+                                    <option value="4.21">4.21</option>
+                                    <option value="1.22">1.22</option>
+                                 </select>
                               </div>
-                           </div>
 
                            <!-- Search box -->
                               <div class="search-box d-flex ms-auto">
@@ -1613,10 +1535,10 @@
                               <div class="d-flex form-pair">
                                  <label class="label " >TERM</label>
 
-                                 <div class="custom-select">
-
+                                 <div class="custom-select me-3">
+   
                                     <select>
-                                       <option value="all-terms">ALL TERMS</option>
+                                       <option value="#">ALL TERMS</option>
                                        <option value="1.21">1.21</option>
                                        <option value="2.21">2.21</option>
                                        <option value="3.21">3.21</option>
@@ -1634,6 +1556,7 @@
 
                                     <select>
                                        <option value="all-classes">ALL CLASSES</option>
+                                       <option value="all-classes">CLASS A</option>
 
                                     </select>
                                  </div>
@@ -1644,7 +1567,7 @@
                                  <label class="label " >NOTIFY</label>
 
                                  <label class="checkbox-container me-3">
-                                    <input type="checkbox">
+                                    <input checked type="checkbox">
                                     <span class="checkmark mt-1"></span>
                                   </label>
 
@@ -1732,10 +1655,15 @@
                               <div class="d-flex form-pair">
                                  <label class="label " >TERM</label>
 
-                                 <div class="custom-select">
-
+                                 <div class="custom-select me-3">
+   
                                     <select>
-                                       <option value="all-terms">ALL TERMS</option>
+                                       <option value="#">ALL TERMS</option>
+                                       <option value="1.21">1.21</option>
+                                       <option value="2.21">2.21</option>
+                                       <option value="3.21">3.21</option>
+                                       <option value="4.21">4.21</option>
+                                       <option value="1.22">1.22</option>
                                     </select>
                                  </div>
                               </div>
@@ -1748,6 +1676,7 @@
 
                                     <select>
                                        <option value="all-classes">ALL CLASSES</option>
+                                       <option value="all-classes">CLASS A</option>
 
                                     </select>
                                  </div>
@@ -1758,7 +1687,7 @@
                                  <label class="label " >NOTIFY</label>
 
                                  <label class="checkbox-container me-3">
-                                    <input type="checkbox">
+                                    <input checked type="checkbox">
                                     <span class="checkmark mt-1"></span>
                                   </label>
 
@@ -2175,7 +2104,7 @@
 
                         <div class="table-secondary" id="reading">
 
-                           <!-- Tale name -->
+                           <!-- Table name -->
                            <h3 class="table-secondary-tag">
                               READING
                            </h3>

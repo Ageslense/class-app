@@ -127,41 +127,35 @@ document.querySelector("#add-user-btn").addEventListener('click', function(){
       tabChange(tabCategory, '#add-user');
    })
 
-document.querySelector('.show-btn').addEventListener('click', function(){
+document.querySelectorAll('.show-btn').forEach(function(btn){
    
-   let btn = document.querySelector('.show-btn');
+   btn.addEventListener('click', function(){
+         
+      switch(btn.innerHTML){
    
-   switch(btn.innerHTML){
+         case 'SHOW':
+            btn.innerHTML = 'HIDE';
+            btn.previousElementSibling.style.display = 'block'
+            break;
 
-      case 'SHOW':
-         btn.innerHTML = 'HIDE';
-         btn.previousElementSibling.style.display = 'block'
-         break;
+         case 'ADD NEW':
+            btn.innerHTML = 'SAVE';
+            document.querySelector('.input-small').style.display = 'block'
+            break;
+   
+         case 'HIDE':
+            btn.innerHTML = 'SHOW';
+            btn.previousElementSibling.style.display = 'none'
+            break;
 
-      case 'HIDE':
-         btn.innerHTML = 'SHOW';
-         btn.previousElementSibling.style.display = 'none'
-         break;
-   }
-
+         case 'SAVE':
+            btn.innerHTML = 'ADD NEW';
+            document.querySelector('.input-small').style.display = 'none'
+            break;
+      }
+   
+   })
 })
-
-// document.querySelector('#add-department').addEventListener('click', function(e){
-//    console.log(e.target);
-
-//    switch(e.target.innerHTML){
-
-//       case 'ADD':
-//          document.querySelector('.add-dept-input').classList.remove('hidden');
-//          e.target.innerHTML = 'SAVE';
-//          break;
-
-//       case 'SAVE':
-//          document.querySelector('.add-dept-input').classList.add('hidden');
-//          e.target.innerHTML = 'ADD';
-//          break;
-//    }
-// })
 
 function tabChange(tabCategory, tabID){
    let primaryTabs = document.querySelectorAll(tabCategory);
