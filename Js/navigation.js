@@ -113,6 +113,22 @@ document.querySelectorAll(".edit-user").forEach(function(element){
    })
 })
 
+document.querySelectorAll(".view-user-link").forEach(function(element){
+   element.addEventListener('click', function(){
+
+      // Close other tab options
+      document.querySelectorAll('.tab-option').forEach(function(e){
+         e.classList.remove('active');
+      });
+
+      let tabCategory = '.dotted-content-container';
+
+      let tabID = '#view-users'
+      
+      tabChange(tabCategory, tabID);
+   })
+})
+
 document.querySelector("#add-user-btn").addEventListener('click', function(){
 
       // Close other tab options
