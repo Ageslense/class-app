@@ -76,43 +76,6 @@ document.querySelectorAll(".tab-option").forEach(function(element){
    })
 })
 
-document.querySelectorAll(".edit-user").forEach(function(element){
-   element.addEventListener('click', function(){
-
-      // Close other tab options
-      document.querySelectorAll('.tab-option').forEach(function(e){
-         e.classList.remove('active');
-      });
-
-      let tabCategory = '.dotted-content-container';
-
-      switch(element.id){
-
-         case 'view-users-toggler':
-            tabID = '#view-users';
-            break;
-
-         case 'add-user-toggler':
-            tabID = '#add-user';
-            break;
-
-         case 'manage-classes-toggler':
-            tabID = '#manage-classes';
-            break;
-
-         case 'manage-tags-toggler':
-            tabID = '#manage-tags';
-            break;
-
-         case '':
-            tabID = '#edit-user';
-            break;
-      }
-      
-      tabChange(tabCategory, tabID);
-   })
-})
-
 document.querySelectorAll(".view-user-link").forEach(function(element){
    element.addEventListener('click', function(){
 
@@ -173,6 +136,38 @@ document.querySelectorAll('.show-btn').forEach(function(btn){
    })
 })
 
+document.querySelectorAll('.search-btn').forEach(function(btn){
+   
+   btn.addEventListener('click', function(e){
+
+      let filter = e.target.nextElementSibling.value.toLowerCase();
+
+      filterTable(e.target, filter, 'text');
+
+      e.target.nextElementSibling.value = '';
+})})
+
+
+// Checkbox filter
+document.querySelectorAll('[filterBy="checkbox"]').forEach(function(checkbox){
+
+   checkbox.addEventListener('mouseup', function(){
+
+      let input = checkbox.querySelector('input')
+
+      if(input.value == "on"){
+
+         let filterValue = checkbox.nextElementSibling.innerHTML.toLowerCase();
+
+         filterTable(checkbox, filterValue, 'checkbox');
+
+      } else {
+
+         filterTable(checkbox, "", 'checkbox')
+      }
+   })
+})
+
 function tabChange(tabCategory, tabID){
    let primaryTabs = document.querySelectorAll(tabCategory);
    let reqTab = document.querySelector(tabID);
@@ -182,4 +177,67 @@ function tabChange(tabCategory, tabID){
    })
    
    reqTab.style.display = 'block';
+}
+
+async function filterTable(UIfilter, filter, filterPos){
+
+   let UItable = document.querySelector(UIfilter.getAttribute("filterTarget"));
+   let items = UItable.querySelectorAll('.table-column p')
+   let attr;
+
+   switch (filterPos){
+
+      case 'text': 
+      attr = 'text-filter';
+      break;
+
+      case 'select': 
+      attr = 'select-filter';
+      break;
+
+      case 'checkbox': 
+      attr = 'checkbox-filter';
+      break;
+   }
+
+   await items.forEach(function(e){
+      e.parentElement.parentElement.setAttribute(attr, 1)     
+   })
+
+   await items.forEach(function(e){
+
+      if(e.textContent.toLowerCase().indexOf(filter) != -1){
+         e.parentElement.parentElement.removeAttribute(attr)
+      } 
+   })
+
+   removeFiltered(UItable)
+}
+
+function removeFiltered(table){
+
+
+   table.querySelectorAll('.custom-table-row').forEach(function(e){
+      e.style.display = 'grid'
+   })
+
+   // table.querySelectorAll('.custom-table-row').forEach(function(e){
+
+   //    if(e.classList.contains('filtered')){
+   //       e.parentElement.style.display = 'grid'
+
+   //    }
+   // })
+
+   table.querySelectorAll('[text-filter]').forEach(function(e){
+      e.style.display = "none"
+   })
+
+   table.querySelectorAll('[select-filter]').forEach(function(e){
+      e.style.display = "none"
+   })
+
+   table.querySelectorAll('[checkbox-filter]').forEach(function(e){
+      e.style.display = "none"
+   })
 }

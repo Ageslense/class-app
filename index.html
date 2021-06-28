@@ -819,24 +819,26 @@
                                  <div class="custom-select-options">
 
                                     <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
+                                       <label filterBy="checkbox" filterTarget="#view-users-table"   class="checkbox-container me-3">
                                           <input type="checkbox">
                                           <span class="checkmark"></span>
                                         </label>
 
                                         <p>ARABIC MODERN STANDARD</p>
                                     </div>
+
                                     <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
+                                       <label filterBy="checkbox" filterTarget="#view-users-table"  class="checkbox-container me-3">
                                           <input type="checkbox">
                                           <span class="checkmark"></span>
                                         </label>
 
                                         <p>ARABIC EGYPTIAN</p>
                                     </div>
+
                                     <div class="custom-select-option">
-                                       <label class="checkbox-container me-3">
-                                          <input type="checkbox">
+                                       <label filterBy="checkbox" filterTarget="#view-users-table"  class="checkbox-container me-3">
+                                          <input  type="checkbox">
                                           <span class="checkmark"></span>
                                         </label>
 
@@ -848,8 +850,10 @@
                               <!-- Term filter -->
                               <div class="custom-select me-3">
    
-                                 <select>
-                                    <option value="#">ALL TERMS</option>
+                                 <select filterBy="select" filterTarget="#view-users-table">
+
+                                    <option value="">ALL TERMS</option>
+                                    <option value="">ALL TERMS</option>
                                     <option value="1.21">1.21</option>
                                     <option value="2.21">2.21</option>
                                     <option value="3.21">3.21</option>
@@ -859,7 +863,7 @@
                               </div>
 
                               <div class="search-box d-flex ms-auto">
-                                 <div class="search-btn">
+                                 <div filterTarget="#view-users-table" filterBy="text" class="search-btn">
                                     <img src="assets/search.svg" alt="search icon">
                                  </div>
                                  <input type="text" class="input" placeholder="search">
@@ -909,7 +913,7 @@
                                        <div class="sort-btn sort-btn-down"></div>
                                     </div>
                                  </div>
-                                 <div class="table-column">
+                                 <div class="table-column large-column">
                                     <p>EMAIL</p>
                                     <div class="d-flex flex-column">
                                        <div class="sort-btn sort-btn-up"></div>
@@ -947,7 +951,7 @@
                                  <div class="table-column">
 
                                  </div>
-                                 <div class="table-column">
+                                 <div class="table-column large-column">
 
                                  </div>
                                  <div class="table-column">
@@ -968,7 +972,7 @@
                                  <div class="table-column">
 
                                  </div>
-                                 <div class="table-column">
+                                 <div class="table-column large-column">
 
                                  </div>
                                  <div class="table-column">
@@ -983,166 +987,169 @@
 
                               </div>
 
-                              <div class="table-body">
+                                 <!-- Table body -->
+                              <div id="view-users-table" class="table-body">
 
-                              </div>
-                              <!-- Table body -->
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
+                                 <div class="custom-table-row">
+                                    <div class="first-col table-column">
+                                       <label class="checkbox-container">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="table-column">
+                                       <p class="row-name edit-user">
+                                          Mohammad Antar
+                                       </p>
+                                    </div>
+                                    <div class="table-column">
+                                       <p>mantor@dliflc.edu</p>
+                                    </div>
+                                    <div class="table-column">
+                                       <p>n/a</p>
+                                    </div>
+                                    <div class="table-column">
+                                       <p>Instrucor L3</p>
+                                    </div>
+                                    <div class="table-column">
+                                       <p>AUG 22-2020</p>
+                                    </div>
+                                    <div class="table-column hidden">
+                                       <p>english</p>
+                                    </div>
+   
                                  </div>
-                                 <div class="table-column">
-                                    <p class="row-name edit-user">
-                                       Mohammad Antar
-                                    </p>
+   
+                                 <div class="custom-table-row">
+                                    <div class="first-col table-column">
+                                       <label class="checkbox-container">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="table-column">
+                                       <p class="row-name">
+   
+                                       </p>
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+   
                                  </div>
-                                 <div class="table-column">
-                                    <p>mantor@dliflc.edu</p>
+                                 <div class="custom-table-row">
+                                    <div class="first-col table-column">
+                                       <label class="checkbox-container">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="table-column">
+                                       <p class="row-name">
+   
+                                       </p>
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+   
                                  </div>
-                                 <div class="table-column">
-                                    <p>n/a</p>
+                                 <div class="custom-table-row">
+                                    <div class="first-col table-column">
+                                       <label class="checkbox-container">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="table-column">
+                                       <p class="row-name">
+   
+                                       </p>
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+   
                                  </div>
-                                 <div class="table-column">
-                                    <p>Instrucor L3</p>
+                                 <div class="custom-table-row">
+                                    <div class="first-col table-column">
+                                       <label class="checkbox-container">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="table-column">
+                                       <p class="row-name">
+   
+                                       </p>
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+   
                                  </div>
-                                 <div class="table-column">
-                                    <p>AUG 22-2020</p>
+                                 <div class="custom-table-row">
+                                    <div class="first-col table-column">
+                                       <label class="checkbox-container">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="table-column">
+                                       <p class="row-name">
+   
+                                       </p>
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+                                    <div class="table-column">
+   
+                                    </div>
+   
                                  </div>
-
-                              </div>
-
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="row-name">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
-                              </div>
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="row-name">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
-                              </div>
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="row-name">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
-                              </div>
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="row-name">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
-                              </div>
-                              <div class="custom-table-row">
-                                 <div class="first-col table-column">
-                                    <label class="checkbox-container">
-                                       <input type="checkbox">
-                                       <span class="checkmark"></span>
-                                     </label>
-                                 </div>
-                                 <div class="table-column">
-                                    <p class="row-name">
-
-                                    </p>
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-                                 <div class="table-column">
-
-                                 </div>
-
                               </div>
 
                             </div>
@@ -1189,7 +1196,7 @@
 
                            <!-- Search box -->
                               <div class="search-box d-flex ms-auto">
-                                 <div class="search-btn">
+                                 <div filterTarget="#manage-classes-table" class="search-btn">
                                     <img src="assets/search.svg" alt="search icon">
                                  </div>
                                  <input type="text" class="input" placeholder="search">
@@ -1314,7 +1321,7 @@
                               </div>
 
                               <!-- Table body -->
-                              <div class="table-body">
+                              <div id="manage-classes-table" class="table-body">
 
                                  <div class="custom-table-row">
                                     <div class="first-col table-column">
@@ -1474,7 +1481,7 @@
                         
                         <div class="secondary-tab" >
 
-                           <h1 class="main-header">EDIT MOHAMMED ATAR</h1>
+                           <h1 class="main-header">EDIT <span class="user-name"> MOHAMMED ATAR</span></h1>
 
                            <form>
 
@@ -1523,8 +1530,8 @@
 
                                  <div class="custom-select">
 
-                                    <select>
-                                       <option value="student">ROLE</option>
+                                    <select name="role">
+                                       <option value="#">ROLE</option>
                                        <option value="student">STUDENT</option>
                                        <option value="instructor">INSTRUCTOR</option>
                                        <option value="team-leader">TEAM LEADER</option>
@@ -1546,7 +1553,7 @@
 
                                  <div class="custom-select me-3">
    
-                                    <select>
+                                    <select name="term">
                                        <option value="#">ALL TERMS</option>
                                        <option value="1.21">1.21</option>
                                        <option value="2.21">2.21</option>
@@ -1563,7 +1570,7 @@
 
                                  <div class="custom-select">
 
-                                    <select>
+                                    <select name="class">
                                        <option value="all-classes">ALL CLASSES</option>
                                        <option value="all-classes">CLASS A</option>
 
@@ -2583,5 +2590,6 @@
 
         <script src="js/navigation.js"></script>
         <script src="js/custom-select.js"></script>
+        <script src="js/api.js"></script>
     </body>
 </html>

@@ -120,10 +120,6 @@ ul{
    transition: 0.4s all ease;
 }
 
-.hidden{
-   display: none;
-}
-
 //Secondary tabs
 .secondary-tab{
    width: 100%;
@@ -175,6 +171,7 @@ ul{
 
    img{
       width: 20px;
+      pointer-events: none;
    }
 }
 
@@ -407,6 +404,7 @@ ul{
    &-row{
       display: grid;
       grid-template-columns: 50px repeat(5, 2fr);  
+      overflow: hidden;
 
       border-bottom: 1px solid white;
 
@@ -419,6 +417,7 @@ ul{
       display: grid;
       grid-template-columns: 50px repeat(5, 2fr); 
       height: 5px; 
+      overflow: hidden;
 
       border-bottom: 1px solid white;
    }
@@ -432,6 +431,10 @@ ul{
    border-right: 1px solid white;
 
    padding: .5rem;
+}
+
+.large-column{
+   min-width: 250px;
 }
 
 .first-col{
@@ -718,5 +721,10 @@ ul{
 
 .modal-dialog{
    max-width: 900px !important;
+}
+
+
+.hidden{
+   display: none;
 }
 

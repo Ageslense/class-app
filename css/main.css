@@ -109,10 +109,6 @@ ul {
   transition: 0.4s all ease;
 }
 
-.hidden {
-  display: none;
-}
-
 .secondary-tab {
   width: 100%;
   height: 100%;
@@ -163,6 +159,7 @@ ul {
 
 .search-btn img {
   width: 20px;
+  pointer-events: none;
 }
 
 .custom-select-secondary {
@@ -400,6 +397,7 @@ input:checked ~ .checkmark:after {
   display: grid;
   -ms-grid-columns: 50px (2fr)[5];
       grid-template-columns: 50px repeat(5, 2fr);
+  overflow: hidden;
   border-bottom: 1px solid white;
 }
 
@@ -413,6 +411,7 @@ input:checked ~ .checkmark:after {
   -ms-grid-columns: 50px (2fr)[5];
       grid-template-columns: 50px repeat(5, 2fr);
   height: 5px;
+  overflow: hidden;
   border-bottom: 1px solid white;
 }
 
@@ -428,6 +427,10 @@ input:checked ~ .checkmark:after {
           align-items: center;
   border-right: 1px solid white;
   padding: .5rem;
+}
+
+.large-column {
+  min-width: 250px;
 }
 
 .first-col {
@@ -711,5 +714,9 @@ input:checked ~ .checkmark:after {
 
 .modal-dialog {
   max-width: 900px !important;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */
