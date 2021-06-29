@@ -93,7 +93,7 @@ function closeAllSelect(elmnt) {
 
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
-document.addEventListener("click", closeAllSelect);
+// document.addEventListener("click", closeAllSelect);
 
 // New custom select
 // document.querySelectorAll('.custom-select-secondary').forEach(function(el){
@@ -103,7 +103,11 @@ document.addEventListener("click", closeAllSelect);
 
 document.addEventListener("click", function (e) {
 
+  closeAllSelect()
+
   var level = 0;
+  
+
 
   if(e.target.getAttribute('open') != null){
 
@@ -111,26 +115,28 @@ document.addEventListener("click", function (e) {
     
       e.target.querySelector('.custom-select-options').style.display = 'none';
       e.target.removeAttribute('open');
-    } else{
-      closeSelect()
-    }
+    } 
 
-    return;
-  }
+  } else{
+
+    for (var element = e.target; element; element = element.parentNode) {
+
+      if(element != document){
   
-  for (var element = e.target; element; element = element.parentNode) {
-
-    if(element != document){
-
-      if (element.classList.contains('custom-select-secondary')) {
+        if (element.classList.contains('custom-select-secondary')) {
+    
+          openSelect(element);
+          return;
+        }
   
-        openSelect(e.target);
-        return;
       }
+  
+      level++;
     }
 
-    level++;
   }
+
+  console.log(15);
 
   closeSelect()
 
