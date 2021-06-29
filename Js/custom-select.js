@@ -16,135 +16,6 @@ for (i = 0; i < l; i++) {
   b = document.createElement("DIV");
   b.setAttribute("class", "select-items select-hide");
 
-  selectChange()
-  // for (j = 1; j < ll; j++) {
-  //   /* For each option in the original select element,
-  //   create a new DIV that will act as an option item: */
-  //   c = document.createElement("DIV");
-  //   c.innerHTML = selElmnt.options[j].innerHTML;
-  //   c.addEventListener("click", function(e) {
-  //       /* When an item is clicked, update the original select box,
-  //       and the selected item: */
-  //       var y, i, k, s, h, sl, yl;
-  //       s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-  //       sl = s.length;
-  //       h = this.parentNode.previousSibling;
-  //       for (i = 0; i < sl; i++) {
-  //         if (s.options[i].innerHTML == this.innerHTML) {
-  //           s.selectedIndex = i;
-  //           h.innerHTML = this.innerHTML;
-  //           y = this.parentNode.getElementsByClassName("same-as-selected");
-  //           yl = y.length;
-  //           for (k = 0; k < yl; k++) {
-  //             y[k].removeAttribute("class");
-  //           }
-  //           this.setAttribute("class", "same-as-selected");
-  //           break;
-  //         }
-  //       }
-  //       h.click();
-
-  //       //Add filter listener
-
-  //       if(s.getAttribute("filterBy") == "select"){
-          
-  //         let filter = s.value.toLowerCase();
-  
-  //         filterTable(s, filter, 'select')
-  //       }
-  //   });
-  //   b.appendChild(c);
-  // }
-  x[i].appendChild(b);
-  a.addEventListener("click", function(e) {
-    /* When the select box is clicked, close any other select boxes,
-    and open/close the current select box: */
-    e.stopPropagation();
-    closeAllSelect(this);
-    this.nextSibling.classList.toggle("select-hide");
-    this.classList.toggle("select-arrow-active");
-  });
-}
-
-function closeAllSelect(elmnt) {
-  /* A function that will close all select boxes in the document,
-  except the current select box: */
-  var x, y, i, xl, yl, arrNo = [];
-  x = document.getElementsByClassName("select-items");
-  y = document.getElementsByClassName("select-selected");
-  xl = x.length;
-  yl = y.length;
-  for (i = 0; i < yl; i++) {
-    if (elmnt == y[i]) {
-      arrNo.push(i)
-    } else {
-      y[i].classList.remove("select-arrow-active");
-    }
-  }
-  for (i = 0; i < xl; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
-    }
-  }
-}
-
-/* If the user clicks anywhere outside the select box,
-then close all select boxes: */
-document.addEventListener("click", closeAllSelect);
-
-document.querySelectorAll('.dropdown-btn').forEach(function(e){
-
-  e.addEventListener('click', function(){
-
-    closeSelect()
-  })
-})
-
-// New custom select
-// document.querySelectorAll('.custom-select-secondary').forEach(function(el){
-
-//   el.addEventListener('click', openSelect(e.target))
-// })
-
-document.addEventListener("click", function (e) {
-
-  var level = 0;
-  
-  for (var element = e.target; element; element = element.parentNode) {
-
-    if(element != document){
-
-      if (element.classList.contains('custom-select-secondary')) {
-  
-        openSelect(e.target);
-        return;
-      }
-    }
-    level++;
-  }
-
-  closeSelect();
-});
-
-function closeSelect(){
-
-    document.querySelectorAll('.custom-select-options').forEach(function(e){
-      e.style.display = 'none';
-    
-    })
-  }
-
-function openSelect(element){
-
-  console.log(element);
-
-  let select = element.querySelector('.custom-select-options')
-
-  select.style.display = 'flex';
-
-}
-
-function selectChange(){
   for (j = 1; j < ll; j++) {
     /* For each option in the original select element,
     create a new DIV that will act as an option item: */
@@ -174,7 +45,7 @@ function selectChange(){
 
         //Add filter listener
 
-        if(s.getAttribute("filterBy") == "select"){
+        if(s.getAttribute("filterBy") == "select" || s.getAttribute("filterBy") == "select-two"){
           
           let filter = s.value.toLowerCase();
   
@@ -183,4 +54,107 @@ function selectChange(){
     });
     b.appendChild(c);
   }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+
+    closeSelect()
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+
+  // closeSelect()
+}
+
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+
+// New custom select
+// document.querySelectorAll('.custom-select-secondary').forEach(function(el){
+
+//   el.addEventListener('click', openSelect(e.target))
+// })
+
+document.addEventListener("click", function (e) {
+
+  var level = 0;
+
+  if(e.target.getAttribute('open') != null){
+
+    if (e.target.getAttribute('open') == '1'){
+    
+      e.target.querySelector('.custom-select-options').style.display = 'none';
+      e.target.removeAttribute('open');
+    } else{
+      closeSelect()
+    }
+
+    return;
+  }
+  
+  for (var element = e.target; element; element = element.parentNode) {
+
+    if(element != document){
+
+      if (element.classList.contains('custom-select-secondary')) {
+  
+        openSelect(e.target);
+        return;
+      }
+    }
+
+    level++;
+  }
+
+  closeSelect()
+
+});
+
+function closeSelect(){
+
+  document.querySelectorAll('.custom-select-options').forEach(function(e){
+      e.style.display = 'none';
+      e.parentElement.removeAttribute('open')
+    })
+  }
+
+function openSelect(element){
+  closeSelect()
+
+  let select = element.querySelector('.custom-select-options')
+
+  select.style.display = 'flex';
+  select.parentElement.setAttribute('open', 1)
+}
+
+function selectChange(e){
+  
+  e.parentElement.querySelector('.select-selected').textContent = e.value.toUpperCase()
+
 }

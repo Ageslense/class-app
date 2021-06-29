@@ -41,9 +41,14 @@ function editUser(id){
          page.querySelector('[name="lName"]').value = `${response.lastName}`
          page.querySelector('[name="password"]').value = `${response.password}`
          page.querySelector('[name="role"]').value = `${response.role.toLowerCase()}`
-         page.querySelector('[name="term"]').value = `${response.term.toLowerCase()}`
-         page.querySelector('[name="class"]').value = `${response.class.toLowerCase()}`
+         // page.querySelector('[name="term"]').value = `${response.term_id}`
+         // page.querySelector('[name="class"]').value = `${response.class.toLowerCase()}`
 
+         page.querySelectorAll('select').forEach(function(e){
+            selectChange(e)
+         })
+
+         // selectChange(document.page.querySelectorAll('.test-select'))
       } 
    }
 
@@ -132,7 +137,6 @@ function onLoad(){
 
    getUsers();
 
-   usersAdd()
 }
 
 window.addEventListener('load', onLoad())

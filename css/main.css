@@ -49,6 +49,16 @@ ul {
   background: #262626;
 }
 
+.language-btn {
+  letter-spacing: 5px;
+  background: #C4C4C4;
+  color: black;
+  padding: .5rem;
+  font-weight: 700;
+  border: none;
+  width: 100%;
+}
+
 .dotted-container {
   position: relative;
   padding: 0.5rem;
@@ -714,6 +724,27 @@ input:checked ~ .checkmark:after {
 
 .modal-dialog {
   max-width: 900px !important;
+}
+
+.light-box {
+  background: #242424;
+  border: 1px solid white;
+}
+
+.light-box-head {
+  padding: .5rem;
+  border-bottom: 1px solid white;
+}
+
+.light-box-head h3 {
+  font-size: 1rem;
+  letter-spacing: 5px;
+  margin-bottom: 0;
+}
+
+.light-box-body {
+  padding: 1rem;
+  min-height: 100px;
 }
 
 .hidden {

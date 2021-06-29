@@ -21,6 +21,10 @@ document.querySelectorAll(".main-nav-item").forEach(function(element){
          case 'teaching-toggler':
             tabID = '#teaching';
             break;
+
+         case 'home-toggler':
+            tabID = '#home';
+            break;
       }
       
       tabChange(tabCategory, tabID);
@@ -147,24 +151,97 @@ document.querySelectorAll('.search-btn').forEach(function(btn){
       e.target.nextElementSibling.value = '';
 })})
 
-
 // Checkbox filter
 document.querySelectorAll('[filterBy="checkbox"]').forEach(function(checkbox){
 
-   checkbox.addEventListener('mouseup', function(){
+   checkbox.addEventListener('change', function(){
 
-      let input = checkbox.querySelector('input')
+      // if(checkbox.getAttribute('filterMultipleTarget') != null){
 
-      if(input.value == "on"){
+      //    attr = checkbox.getAttribute('filterMultipleTarget');
 
-         let filterValue = checkbox.nextElementSibling.innerHTML.toLowerCase();
+      //    console.log(attr);
 
-         filterTable(checkbox, filterValue, 'checkbox');
 
-      } else {
+      //    return;
+      // }
 
-         filterTable(checkbox, "", 'checkbox')
+      switch(checkbox.checked){
+
+         case true:
+            let filterValue = checkbox.parentElement.nextElementSibling.innerHTML.toLowerCase();
+            filterTableByCheckbox(checkbox, filterValue);
+            break;
+
+         case false:
+            filterTableByCheckbox(checkbox, "")
+            break;
       }
+
+   })
+})
+
+// Teaching checkbox filter
+// document.querySelectorAll('[filterBy="checkbox-mult"]').forEach(function(checkbox){
+
+//    checkbox.addEventListener('change', function(){
+
+//       switch(checkbox.checked){
+
+//          case true:
+//             let filterValue = checkbox.parentElement.nextElementSibling.innerHTML.toLowerCase();
+//             filterTableByCheckbox(checkbox, filterValue);
+//             break;
+
+//          case false:
+//             filterTableByCheckbox(checkbox, "")
+//             break;
+//       }
+
+//    })
+// })
+
+//Teaching checkbox filter
+document.querySelectorAll('[typeFilter]').forEach(function(e){
+   
+   const target = e.getAttribute('typeFilter');
+
+   e.addEventListener('change', function(e){
+
+      teachingFilter(e, target);
+   })
+})
+
+//Bulk actions
+document.querySelectorAll('[target]').forEach(function(checkbox){
+
+   checkbox.addEventListener('change', function(){
+
+      const target = document.getElementById(checkbox.getAttribute("target"))
+
+      console.log(checkbox.getAttribute("target"));
+      
+      if(checkbox.checked == true){
+  
+         switch(checkbox.getAttribute('action')){
+
+            case 'check-all':
+               target.querySelectorAll("input[type='checkbox']").forEach(function(e){
+                  e.checked = true;
+               });
+               checkbox.parentElement.parentElement.parentElement.querySelector('[action="clear-all"]').checked = false;
+               break;
+   
+            case 'clear-all':
+               target.querySelectorAll("input[type='checkbox']").forEach(function(e){
+                  e.checked = false;
+               });
+               checkbox.parentElement.parentElement.parentElement.querySelector('[action="check-all"]').checked = false;
+               break;
+         }
+            
+      } 
+      
    })
 })
 
@@ -177,6 +254,46 @@ function tabChange(tabCategory, tabID){
    })
    
    reqTab.style.display = 'block';
+}
+
+async function filterTableByCheckbox(UIfilter, filter){
+
+   let UItable = document.querySelector(UIfilter.getAttribute("filterTarget"));
+   let items = UItable.querySelectorAll('.table-column p')
+   let attr = 'checkbox-filter';
+
+   await items.forEach(function(e){
+      e.parentElement.parentElement.setAttribute(attr, 0)    
+   })
+
+   await items.forEach(function(e){
+
+      if(e.textContent.toLowerCase().indexOf(filter) != -1){
+         e.parentElement.parentElement.setAttribute(attr, 1)
+      } 
+   })
+
+   removeFiltered(UItable)
+}
+
+async function filterTableByCheckbox(UIfilter, filter){
+
+   let UItable = document.querySelector(UIfilter.getAttribute("filterTarget"));
+   let items = UItable.querySelectorAll('.table-column p')
+   let attr = 'checkbox-filter';
+
+   await items.forEach(function(e){
+      e.parentElement.parentElement.setAttribute(attr, 0)    
+   })
+
+   await items.forEach(function(e){
+
+      if(e.textContent.toLowerCase().indexOf(filter) != -1){
+         e.parentElement.parentElement.setAttribute(attr, 1)
+      } 
+   })
+
+   removeFiltered(UItable)
 }
 
 async function filterTable(UIfilter, filter, filterPos){
@@ -195,8 +312,8 @@ async function filterTable(UIfilter, filter, filterPos){
       attr = 'select-filter';
       break;
 
-      case 'checkbox': 
-      attr = 'checkbox-filter';
+      case 'select-two': 
+      attr = 'select-two-filter';
       break;
    }
 
@@ -214,20 +331,38 @@ async function filterTable(UIfilter, filter, filterPos){
    removeFiltered(UItable)
 }
 
-function removeFiltered(table){
+function teachingFilter(e, target){
 
+   if(e.target.checked == true){
+
+      document.getElementById(target).style.display = 'block'
+   } else{
+
+      document.getElementById(target).style.display = 'none'
+   }
+}
+
+function removeFiltered(table){
 
    table.querySelectorAll('.custom-table-row').forEach(function(e){
       e.style.display = 'grid'
    })
+   
+   table.querySelectorAll('[checkbox-filter]').forEach(function(e){
 
-   // table.querySelectorAll('.custom-table-row').forEach(function(e){
+      const att = e.getAttribute('checkbox-filter');
+      
+      switch (att){
 
-   //    if(e.classList.contains('filtered')){
-   //       e.parentElement.style.display = 'grid'
+         case '1':
+            e.style.display = 'grid'
+            break;
 
-   //    }
-   // })
+         case '0':
+            e.style.display = 'none'
+            break;
+      }
+   })
 
    table.querySelectorAll('[text-filter]').forEach(function(e){
       e.style.display = "none"
@@ -237,7 +372,9 @@ function removeFiltered(table){
       e.style.display = "none"
    })
 
-   table.querySelectorAll('[checkbox-filter]').forEach(function(e){
+   table.querySelectorAll('[select-two-filter]').forEach(function(e){
       e.style.display = "none"
    })
+
+  
 }
