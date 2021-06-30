@@ -86,7 +86,7 @@ function populateViewUsers(users){
          <p>${e.lastLogin}</p>
       </div>
       <div class="table-column hidden">
-         <p>english</p>
+         <p>${e.language_id}</p>
       </div>
 
    </div>`

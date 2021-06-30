@@ -276,26 +276,6 @@ async function filterTableByCheckbox(UIfilter, filter){
    removeFiltered(UItable)
 }
 
-async function filterTableByCheckbox(UIfilter, filter){
-
-   let UItable = document.querySelector(UIfilter.getAttribute("filterTarget"));
-   let items = UItable.querySelectorAll('.table-column p')
-   let attr = 'checkbox-filter';
-
-   await items.forEach(function(e){
-      e.parentElement.parentElement.setAttribute(attr, 0)    
-   })
-
-   await items.forEach(function(e){
-
-      if(e.textContent.toLowerCase().indexOf(filter) != -1){
-         e.parentElement.parentElement.setAttribute(attr, 1)
-      } 
-   })
-
-   removeFiltered(UItable)
-}
-
 async function filterTable(UIfilter, filter, filterPos){
 
    let UItable = document.querySelector(UIfilter.getAttribute("filterTarget"));

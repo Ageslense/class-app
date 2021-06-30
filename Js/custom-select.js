@@ -136,8 +136,6 @@ document.addEventListener("click", function (e) {
 
   }
 
-  console.log(15);
-
   closeSelect()
 
 });

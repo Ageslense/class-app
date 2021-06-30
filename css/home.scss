@@ -1,0 +1,28 @@
+
+
+.licenses-line{
+   position: relative;
+   display: grid;
+   grid-template-columns: 1fr 3fr 1fr 1fr;
+   align-items: center;
+
+   &:first-child .license-available:after{
+
+      content: 'Issued / Available';
+      position: absolute;
+      bottom: 100%;
+      font-weight: 700;
+      font-size: .8rem;
+   }
+}
+
+.license-progress{
+   background: #C4C4C4;
+   width: 100%;
+   height: 1rem;
+
+   &-bar{
+      background: #666666;
+      width: 61%;
+   }
+}
