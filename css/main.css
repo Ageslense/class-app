@@ -51,12 +51,25 @@ ul {
 
 .language-btn {
   letter-spacing: 5px;
-  background: #C4C4C4;
+  background: white;
   color: black;
   padding: .5rem;
   font-weight: 700;
   border: none;
   width: 200px;
+}
+
+.language-btn:hover {
+  color: #333333;
+  background: #e6e6e6;
+}
+
+.language-btn.purchased {
+  background: #C4C4C4;
+}
+
+.language-btn.purchased:hover {
+  background: #ababab;
 }
 
 .dotted-container {
