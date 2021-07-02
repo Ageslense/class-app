@@ -31,7 +31,7 @@
                   <div class="d-flex form-pair">
                      <label class="label " for="department">DEPARTMENT</label>
   
-                     <div class="custom-select me-3">
+                     <div class="custom-select">
    
                         <select>
                            <option value="#">ALL DEPARTMENTS</option>
@@ -42,10 +42,10 @@
                            <option value="#">UMA</option>
                         </select>
                      </div>                     
-<!-- 
-                     <div id="add-department" class="btn light-btn me-3">ADD</div>
 
-                     <input type="text" class="input hidden add-dept-input"> -->
+                     <div class="btn light-btn add-dept-btn">+</div>
+
+                     <input type="text" class="input add-dept-input">
                   </div>
 
                   <div class="d-flex form-pair">
@@ -125,10 +125,10 @@
                      </div>
 
                      <div class="search-box d-flex ms-auto">
-                        <div filterTarget="#add-class-table" filterBy="text" class="search-btn">
+                        <div filterTarget="#add-class-table" filterBy="text" class="search-btn search-btn-singular">
                            <img src="assets/search.svg" alt="search icon">
                         </div>
-                        <input type="text" class="input" placeholder="search">
+                        <input filterTarget="#add-class-table" type="text" class="input search-input" placeholder="search">
                      </div>
 
 
@@ -368,7 +368,7 @@
                   <div class="d-flex form-pair">
                      <label class="label " for="department">DEPARTMENT</label>
 
-                     <div class="custom-select me-3">
+                     <div class="custom-select">
    
                         <select>
                            <option value="#">ALL DEPARTMENTS</option>
@@ -379,10 +379,10 @@
                            <option value="#">UMA</option>
                         </select>
                      </div> 
-<!-- 
-                     <div id="add-department" class="btn light-btn me-3">ADD</div>
 
-                     <input type="text" class="input hidden add-dept-input"> -->
+                     <div class="btn light-btn add-dept-btn">+</div>
+
+                     <input type="text" class="input add-dept-input">
                   </div>
 
                   <div class="d-flex form-pair">
@@ -459,10 +459,10 @@
                      </div>
 
                      <div class="search-box d-flex ms-auto">
-                        <div filterTarget="#edit-class-table" filterBy="text" class="search-btn">
+                        <div filterTarget="#edit-class-table" filterBy="text" class="search-btn search-btn-singular">
                            <img src="assets/search.svg" alt="search icon">
                         </div>
-                        <input type="text" class="input" placeholder="search">
+                        <input filterTarget="#edit-class-table" type="text" class="input search-input" placeholder="search">
                      </div>
 
 
@@ -808,109 +808,109 @@
               <!-- Page content wrapper-->
               <div class="page-content-wrapper">
 
-               <!-- HOME TAB -->
-               <div class="main-content" id="home">
+                  <!-- HOME TAB -->
+                  <div class="main-content" id="home">
 
-                  <div class="dotted-content-container d-block" >
+                     <div class="dotted-content-container d-block" >
 
-                   <div class="secondary-tab dynamic-tab" >
+                     <div class="secondary-tab dynamic-tab" >
 
-                      <h1 class="main-header">HOME</h1>
+                        <h1 class="main-header">HOME</h1>
 
-                      <div class="light-box">
-                         <div class="light-box-head">
-                            <h3>MESSAGE OF THE DAY</h3>
-                         </div>
-                         <div class="light-box-body">
-                            <p>A1C Jenson completed Chapter 2 last night at 11:24. SrA Hobbs has not started Chapter 2.</p>
-                         </div>
-                      </div>
-
-                      <div class="light-box mt-3">
-                         <div class="light-box-head">
-                            <h3>YOUR LICENSES</h3>
-                         </div>
-                         <div class="light-box-body">
-                            
-                           <div class="licenses-line mt-3">
-                              <p class="license-name">
-                                 MSA
-                              </p>
-                              <div class="license-progress">
-                                 <div class="license-progress-bar h-100"></div>
-                              </div>
-
-                              <div class="license-available d-flex justify-content-center">
-                                 <p class="issued">4</p>
-                                 <p>/</p>
-                                 <p class="available">6</p>
-                              </div>
-
-                              <div class="btn language-btn">
-                                 +LICENSES
-                              </div>
-
+                        <div class="light-box">
+                           <div class="light-box-head">
+                              <h3>MESSAGE OF THE DAY</h3>
                            </div>
-                         </div>
-                      </div>
+                           <div class="light-box-body">
+                              <p>A1C Jenson completed Chapter 2 last night at 11:24. SrA Hobbs has not started Chapter 2.</p>
+                           </div>
+                        </div>
 
-                      <div class="light-box mt-3">
-                         <div class="light-box-head">
-                            <h3>AVAILABLE LANGUAGES</h3>
-                         </div>
-                         <div class="light-box-body">
-
-                           <!-- Language boxes -->
-                            <div class="d-flex">
-
-                               <div class="d-flex flex-column align-items-center w-25 px-2">
-                                 <img src="assets/img/msa.png" alt="msa" class="language-img w-100">
-
-                                 <p class="my-2">MSA</p>
-
-                                 <div class="btn language-btn purchased">
-                                    PURCHASED
+                        <div class="light-box mt-3">
+                           <div class="light-box-head">
+                              <h3>YOUR LICENSES</h3>
+                           </div>
+                           <div class="light-box-body">
+                              
+                              <div class="licenses-line mt-3">
+                                 <p class="license-name">
+                                    MSA
+                                 </p>
+                                 <div class="license-progress">
+                                    <div class="license-progress-bar h-100"></div>
                                  </div>
-                               </div>
 
-                               <div class="d-flex flex-column align-items-center w-25 px-2">
-                                 <img src="assets/img/mandarin.png" alt="msa" class="language-img w-100">
-
-                                 <p class="my-2">MANDARIN</p>
+                                 <div class="license-available d-flex justify-content-center">
+                                    <p class="issued">4</p>
+                                    <p>/</p>
+                                    <p class="available">6</p>
+                                 </div>
 
                                  <div class="btn language-btn">
-                                    REQUEST
+                                    +LICENSES
                                  </div>
-                               </div>
 
-                               <div class="d-flex flex-column align-items-center w-25 px-2">
-                                 <img src="assets/img/russian.png" alt="msa" class="language-img w-100">
+                              </div>
+                           </div>
+                        </div>
 
-                                 <p class="my-2">RUSSIAN</p>
+                        <div class="light-box mt-3">
+                           <div class="light-box-head">
+                              <h3>AVAILABLE LANGUAGES</h3>
+                           </div>
+                           <div class="light-box-body">
 
-                                 <div class="btn language-btn">
-                                    REQUEST
+                              <!-- Language boxes -->
+                              <div class="d-flex">
+
+                                 <div class="d-flex flex-column align-items-center w-25 px-2">
+                                    <img src="assets/img/msa.png" alt="msa" class="language-img w-100">
+
+                                    <p class="my-2">MSA</p>
+
+                                    <div class="btn language-btn purchased">
+                                       PURCHASED
+                                    </div>
                                  </div>
-                               </div>
 
-                               <div class="d-flex flex-column align-items-center w-25 px-2">
-                                 <img src="assets/img/spanish.png" alt="spanish" class="language-img w-100">
+                                 <div class="d-flex flex-column align-items-center w-25 px-2">
+                                    <img src="assets/img/mandarin.png" alt="msa" class="language-img w-100">
 
-                                 <p class="my-2">SPANISH</p>
+                                    <p class="my-2">MANDARIN</p>
 
-                                 <div class="btn language-btn purchased">
-                                    COMING SOON
+                                    <div class="btn language-btn">
+                                       REQUEST
+                                    </div>
                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
+
+                                 <div class="d-flex flex-column align-items-center w-25 px-2">
+                                    <img src="assets/img/russian.png" alt="msa" class="language-img w-100">
+
+                                    <p class="my-2">RUSSIAN</p>
+
+                                    <div class="btn language-btn">
+                                       REQUEST
+                                    </div>
+                                 </div>
+
+                                 <div class="d-flex flex-column align-items-center w-25 px-2">
+                                    <img src="assets/img/spanish.png" alt="spanish" class="language-img w-100">
+
+                                    <p class="my-2">SPANISH</p>
+
+                                    <div class="btn language-btn purchased">
+                                       COMING SOON
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
 
 
-                   </div>
+                     </div>
 
+                     </div>
                   </div>
-               </div>
 
                   <!-- USERS TAB -->
                     <div class="main-content" id="users">
@@ -980,10 +980,10 @@
                               </div>
 
                               <div class="search-box d-flex ms-auto">
-                                 <div filterTarget="#view-users-table" filterBy="text" class="search-btn">
+                                 <div filterTarget="#view-users-table" filterBy="text" class="search-btn search-btn-singular">
                                     <img src="assets/search.svg" alt="search icon">
                                  </div>
-                                 <input type="text" class="input" placeholder="search">
+                                 <input filterTarget="#view-users-table" type="text" class="input search-input" placeholder="search">
                               </div>
                            </div>
 
@@ -1156,10 +1156,10 @@
 
                            <!-- Search box -->
                               <div class="search-box d-flex ms-auto">
-                                 <div filterTarget="#manage-classes-table" class="search-btn">
+                                 <div filterTarget="#manage-classes-table" class="search-btn search-btn-singular">
                                     <img src="assets/search.svg" alt="search icon">
                                  </div>
-                                 <input type="text" class="input" placeholder="search">
+                                 <input filterTarget="#manage-classes-table"  type="text" class="input search-input" placeholder="search">
                               </div>
                            </div>
 
@@ -1580,7 +1580,7 @@
                                  
                                  <div class="custom-select-option">
                                     <label class="checkbox-container me-3">
-                                       <input filterBy="checkbox-mult" filterTarget="[teaching-table]" type="checkbox">
+                                       <input filterBy="checkbox-mult" multiFilter='teaching' type="checkbox">
                                        <span class="checkmark"></span>
                                      </label>
                            
@@ -1589,7 +1589,7 @@
 
                                  <div class="custom-select-option">
                                     <label class="checkbox-container me-3">
-                                       <input filterBy="checkbox-mult" filterTarget="[teaching-table]" type="checkbox">
+                                       <input filterBy="checkbox-mult" multiFilter='teaching' type="checkbox">
                                        <span class="checkmark"></span>
                                      </label>
                            
@@ -1598,7 +1598,7 @@
 
                                  <div class="custom-select-option">
                                     <label class="checkbox-container me-3">
-                                       <input filtcheckboxerBy="" filterTarget="[teaching-table]" type="checkbox">
+                                       <input filtcheckboxerBy="" multiFilter='teaching' type="checkbox">
                                        <span class="checkmark"></span>
                                      </label>
                            
@@ -1617,7 +1617,7 @@
                                  
                                  <div class="custom-select-option">
                                     <label class="checkbox-container me-3">
-                                       <input filterBy="checkbox-mult" filterTarget="[teaching-table]" type="checkbox">
+                                       <input filterBy="checkbox-mult" multiFilter='teaching' type="checkbox">
                                        <span class="checkmark"></span>
                                      </label>
                            
@@ -1627,10 +1627,10 @@
                            </div>
 
                            <div class="search-box d-flex ms-auto">
-                              <div class="search-btn">
+                              <div class="search-btn search-btn-multi">
                                  <img src="assets/search.svg" alt="search icon">
                               </div>
-                              <input type="text" class="input" placeholder="search">
+                              <input type="text" class="input search-input-multi" placeholder="search">
                            </div>
                         </div>
 
@@ -1891,7 +1891,7 @@
                            </div>
 
                            <!-- Body -->
-                           <div listening-table class="table-body">
+                           <div listening-table teaching-table class="table-body">
 
                               <div class="table-secondary-row">
    
@@ -2182,7 +2182,7 @@
                            </div>
 
                            <!-- Body -->
-                           <div reading-table class="table-body">
+                           <div reading-table teaching-table class="table-body">
 
                               <div class="table-secondary-row">
    
@@ -2483,7 +2483,7 @@
                               </div>
                            </div>
 
-                           <div vocab-table class="table-body">
+                           <div vocab-table teaching-table class="table-body">
 
                               <div class="table-secondary-row vocab-row">
    

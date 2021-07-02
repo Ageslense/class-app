@@ -1,4 +1,24 @@
 
+function getTeachingData(){
+
+   const xhr = new XMLHttpRequest();
+
+   xhr.open('GET', 'http://3.217.89.121:10550/api/pages/teaching/analyzeLRV', true);
+
+   xhr.onload = function(){
+
+      if(this.status === 200){
+         const response = JSON.parse(this.responseText);
+
+         const users = response
+
+         console.log(users);
+      } 
+   }
+
+   xhr.send()
+}
+
 function getUsers(){
 
    const xhr = new XMLHttpRequest();
@@ -11,6 +31,8 @@ function getUsers(){
          const response = JSON.parse(this.responseText);
 
          const users = response.data
+         const languages = response.languagesData
+
 
          populateViewUsers(users)
       } 
@@ -58,8 +80,10 @@ function editUser(id){
 function populateViewUsers(users){
    const table = document.getElementById('view-users-table')
    table.innerHTML = '';
-
+   
    users.forEach(function(e){
+
+      e.language_id
 
       table.innerHTML += `<div  class="custom-table-row">
       <div class="first-col table-column">
@@ -107,6 +131,7 @@ function populateViewUsers(users){
          tabChange(tabCategory, tabID);
 
          editUser(e.target.getAttribute('userId'))
+
       })
    })
 }
@@ -137,7 +162,11 @@ function onLoad(){
 
    getUsers();
 
+   // getTeachingData();
+
 }
+
+
 
 window.addEventListener('load', onLoad())
 

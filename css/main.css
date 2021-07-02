@@ -72,6 +72,21 @@ ul {
   background: #ababab;
 }
 
+.add-dept-btn {
+  font-size: 25.6px;
+  line-height: 1;
+  padding: 0 .5rem;
+  margin-left: 1rem;
+  -webkit-transition: width .4s ease;
+  transition: width .4s ease;
+}
+
+.add-dept-btn.active {
+  padding: 0.2rem 2rem;
+  font-size: .8rem;
+  line-height: initial;
+}
+
 .dotted-container {
   position: relative;
   padding: 0.5rem;
@@ -343,6 +358,19 @@ ul {
   width: auto;
   font-size: 0.6rem;
   height: 20px;
+}
+
+.add-dept-input {
+  width: 0;
+  opacity: 0;
+  margin-left: 2rem;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+.add-dept-input.active {
+  width: 200px;
+  opacity: 1;
 }
 
 /* Customize the label (the container) */

@@ -96,6 +96,46 @@ document.querySelectorAll(".view-user-link").forEach(function(element){
    })
 })
 
+document.querySelectorAll('.add-dept-btn').forEach(function(e){
+
+   e.addEventListener('click', function(e){
+
+      console.log(2);
+
+      const input = e.target.nextElementSibling;
+
+      switch(e.target.textContent){
+
+         case '+':
+            input.classList.add('active');
+            e.target.classList.add('active');
+            e.target.textContent = 'SAVE';
+            break;
+
+         case 'SAVE':
+            input.classList.remove('active');
+            e.target.classList.remove('active');
+            e.target.textContent = '+';
+            break;
+      }
+   })
+})
+
+document.querySelectorAll('.add-dept-input').forEach(function(e){
+
+   e.addEventListener('keypress', function(e){
+
+      const btn = e.target.previousElementSibling;
+
+      if(e.key === 'Enter'){
+
+         e.target.classList.remove('active')
+         btn.textContent = '+'
+         btn.classList.remove('active')
+      }
+   })
+})
+
 document.querySelector("#add-user-btn").addEventListener('click', function(){
 
       // Close other tab options
@@ -140,7 +180,7 @@ document.querySelectorAll('.show-btn').forEach(function(btn){
    })
 })
 
-document.querySelectorAll('.search-btn').forEach(function(btn){
+document.querySelectorAll('.search-btn-singular').forEach(function(btn){
    
    btn.addEventListener('click', function(e){
 
@@ -149,6 +189,20 @@ document.querySelectorAll('.search-btn').forEach(function(btn){
       filterTable(e.target, filter, 'text');
 
       e.target.nextElementSibling.value = '';
+})})
+
+document.querySelectorAll('.search-input').forEach(function(btn){
+   
+   btn.addEventListener('keypress', function(e){
+
+      if(e.key === 'Enter'){
+         let filter = e.target.value.toLowerCase();
+   
+         filterTable(e.target, filter, 'text');
+   
+         e.target.value = '';
+      }
+
 })})
 
 // Checkbox filter
@@ -181,34 +235,86 @@ document.querySelectorAll('[filterBy="checkbox"]').forEach(function(checkbox){
    })
 })
 
-// Teaching checkbox filter
-// document.querySelectorAll('[filterBy="checkbox-mult"]').forEach(function(checkbox){
+//Teaching filters
+document.querySelectorAll('[multiFilter]').forEach(function(e){
 
-//    checkbox.addEventListener('change', function(){
+   const filterType = e.getAttribute('filterBy');
+   const tables = document.querySelectorAll('[teaching-table]') 
 
-//       switch(checkbox.checked){
+   switch(filterType){
 
-//          case true:
-//             let filterValue = checkbox.parentElement.nextElementSibling.innerHTML.toLowerCase();
-//             filterTableByCheckbox(checkbox, filterValue);
-//             break;
+      case 'checkbox-mult':
 
-//          case false:
-//             filterTableByCheckbox(checkbox, "")
-//             break;
-//       }
+         e.addEventListener('change', function(){
 
-//    })
-// })
+            tables.forEach(function(table){
 
-//Teaching checkbox filter
-document.querySelectorAll('[typeFilter]').forEach(function(e){
+               switch(e.checked){
    
-   const target = e.getAttribute('typeFilter');
+                  case true:
+                     let filterValue = e.parentElement.nextElementSibling.innerHTML.toLowerCase();
+                     filterTableByCheckboxMulti(table, filterValue);
+
+                     console.log(11);
+                     break;
+         
+                  case false:
+                     filterTableByCheckboxMulti(table, "")
+                     break;
+               }
+            })
+
+         })
+   }
+})
+
+document.querySelectorAll('.search-btn-multi').forEach(function(btn){
+   
+   const tables = document.querySelectorAll('[teaching-table]') 
+
+  
+   btn.addEventListener('click', function(e){
+
+      let filter = e.target.nextElementSibling.value.toLowerCase();
+
+      tables.forEach(function(table){
+
+         filterTableMulti(table, filter);
+      })
+
+
+      e.target.nextElementSibling.value = '';
+
+})})
+
+document.querySelectorAll('.search-input-multi').forEach(function(btn){
+   
+   btn.addEventListener('keypress', function(e){
+
+      const tables = document.querySelectorAll('[teaching-table]') 
+
+      if(e.key === 'Enter'){
+         let filter = e.target.value.toLowerCase();
+
+         tables.forEach(function(table){
+         
+            filterTableMulti(table, filter);
+
+         })
+   
+         e.target.value = '';
+      }
+
+})})
+
+document.querySelectorAll('[typefilter]').forEach(function(e){
 
    e.addEventListener('change', function(e){
 
-      teachingFilter(e, target);
+      const target = e.target.getAttribute('typefilter')
+      console.log(target);
+
+      teachingFilter(e, target)
    })
 })
 
@@ -256,6 +362,42 @@ function tabChange(tabCategory, tabID){
    reqTab.style.display = 'block';
 }
 
+//Sorting tables
+document.querySelectorAll('.sort-btn').forEach(function(e){
+
+   if(e.classList.contains('sort-btn-up')){
+
+      e.addEventListener('click', function(){
+         sortTable(e, 1)
+      })
+   } else{
+      e.addEventListener('click', function(){
+         sortTable(e, 0)
+      })
+   }
+
+})
+
+async function filterTableByCheckboxMulti(target, filter){
+
+   let items = target.querySelectorAll('.table-secondary-first p')
+   let attr = 'checkbox-filter';
+
+   await items.forEach(function(e){
+      e.parentElement.parentElement.setAttribute(attr, 0)    
+   })
+
+   await items.forEach(function(e){
+
+      console.log(e.textContent.toLowerCase());
+      if(e.textContent.toLowerCase().indexOf(filter) != -1){
+         e.parentElement.parentElement.setAttribute(attr, 1)
+      } 
+   })
+
+   removeFiltered(target)
+}
+
 async function filterTableByCheckbox(UIfilter, filter){
 
    let UItable = document.querySelector(UIfilter.getAttribute("filterTarget"));
@@ -274,6 +416,28 @@ async function filterTableByCheckbox(UIfilter, filter){
    })
 
    removeFiltered(UItable)
+}
+
+async function filterTableMulti(target, filter){
+
+   let items = target.querySelectorAll('.table-secondary-first p')
+   let attr = 'text-filter'
+
+   await items.forEach(function(e){
+      e.parentElement.parentElement.setAttribute(attr, 1)        
+   })
+
+   await items.forEach(function(e){
+
+      if(e.textContent.toLowerCase().indexOf(filter) != -1){
+         e.parentElement.parentElement.removeAttribute(attr)
+
+      } 
+
+      
+   })
+   
+   removeFilteredMulti(target)
 }
 
 async function filterTable(UIfilter, filter, filterPos){
@@ -322,6 +486,43 @@ function teachingFilter(e, target){
    }
 }
 
+function removeFilteredMulti(table){
+
+   table.querySelectorAll('.table-secondary-row').forEach(function(e){
+      e.style.display = 'grid'
+   })
+   
+   table.querySelectorAll('[checkbox-filter]').forEach(function(e){
+
+      const att = e.getAttribute('checkbox-filter');
+      
+      switch (att){
+
+         case '1':
+            e.style.display = 'grid'
+            break;
+
+         case '0':
+            e.style.display = 'none'
+            break;
+      }
+   })
+
+   table.querySelectorAll('[text-filter]').forEach(function(e){
+      e.style.display = "none"
+   })
+
+   table.querySelectorAll('[select-filter]').forEach(function(e){
+      e.style.display = "none"
+   })
+
+   table.querySelectorAll('[select-two-filter]').forEach(function(e){
+      e.style.display = "none"
+   })
+
+  
+}
+
 function removeFiltered(table){
 
    table.querySelectorAll('.custom-table-row').forEach(function(e){
@@ -357,4 +558,51 @@ function removeFiltered(table){
    })
 
   
+}
+
+function sortTable(e, ascending){
+
+   const table = e.parentElement.parentElement.parentElement.parentElement.querySelector('.table-body')
+   const rows = table.querySelectorAll('.custom-table-row')
+   const rowsArray = Array.from(rows);
+   let order = 0;
+
+   let child = e.parentElement.parentElement;
+
+   while( (child = child.previousElementSibling) != null){
+      order++;
+   }
+
+   let sortedList;
+
+   if(ascending){
+
+      sortedList = rowsArray.sort((a, b) => {
+         
+         if(a.querySelector(`.table-column:nth-child(${order+1}) p`).textContent > b.querySelector(`.table-column:nth-child(${order+1}) p`).textContent){
+            return 1;
+         } else{
+            return -1;
+         }
+      
+      });
+   } else{
+      sortedList = rowsArray.sort((a, b) => {
+         
+         if(a.querySelector(`.table-column:nth-child(${order+1}) p`).textContent > b.querySelector(`.table-column:nth-child(${order+1}) p`).textContent){
+            return -1;
+         } else{
+            return 1;
+         }
+      
+      });
+   }
+
+   table.innerHTML = '';
+
+   sortedList.forEach(function(e){
+
+      table.innerHTML += e.outerHTML;
+   })
+
 }
