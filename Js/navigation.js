@@ -65,6 +65,8 @@ document.querySelectorAll(".tab-option").forEach(function(element){
 
          case 'manage-classes-toggler':
             tabID = '#manage-classes';
+            populateViewClasses()
+
             break;
 
          case 'manage-tags-toggler':
@@ -78,6 +80,10 @@ document.querySelectorAll(".tab-option").forEach(function(element){
       
       tabChange(tabCategory, tabID);
    })
+})
+
+document.querySelector('.save-user-btn').addEventListener('click', function(){
+   saveUser()
 })
 
 document.querySelectorAll(".view-user-link").forEach(function(element){
@@ -324,8 +330,6 @@ document.querySelectorAll('[target]').forEach(function(checkbox){
    checkbox.addEventListener('change', function(){
 
       const target = document.getElementById(checkbox.getAttribute("target"))
-
-      console.log(checkbox.getAttribute("target"));
       
       if(checkbox.checked == true){
   
@@ -606,3 +610,7 @@ function sortTable(e, ascending){
    })
 
 }
+
+document.querySelector('.add-new-user-btn').addEventListener('click', function(){
+   addUser()
+})

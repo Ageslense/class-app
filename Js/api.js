@@ -1,89 +1,98 @@
-
-function getTeachingData(){
-
-   const xhr = new XMLHttpRequest();
-
-   xhr.open('GET', 'http://3.217.89.121:10550/api/pages/teaching/analyzeLRV', true);
-
-   xhr.onload = function(){
-
-      if(this.status === 200){
-         const response = JSON.parse(this.responseText);
-
-         const users = response
-
-         console.log(users);
-      } 
-   }
-
-   xhr.send()
+function easyHTTP(){
+   this.http = new XMLHttpRequest;
 }
 
-function getUsers(){
+// HTTP GET request
+easyHTTP.prototype.get = function(url, callback){
 
-   const xhr = new XMLHttpRequest();
+   this.http.open('GET', url, true);
 
-   xhr.open('GET', 'http://3.217.89.121:10550/api/pages/users/viewall', true);
-
-   xhr.onload = function(){
-
-      if(this.status === 200){
-         const response = JSON.parse(this.responseText);
-
-         const users = response.data
-         const languages = response.languagesData
-
-
-         populateViewUsers(users)
-      } 
+   let self = this;
+   this.http.onload = function() {
+      if(self.http.status === 200){
+         callback(JSON.parse(self.http.responseText));
+      }
    }
 
-   xhr.send()
+   this.http.send();
 }
 
-function editUser(id){
+// HTTP POST request
+easyHTTP.prototype.post = function(url, data, callback){
 
-   const xhr = new XMLHttpRequest();
+   this.http.open('POST', url, true)
 
-   xhr.open('GET', `http://3.217.89.121:10550/api/pages/users/edit/${id}`
-   , true);
+   this.http.setRequestHeader('Content-type', 'application/json');
 
-   xhr.onload = function(){
+   let self = this;
+   this.http.onload = function() {
+      if(self.http.status === 200){
+         callback(JSON.parse(self.http.responseText));
+      }
+   }
+      
+   this.http.send(JSON.stringify(data))
+}
 
-      if(this.status === 200){
-         const response = JSON.parse(this.responseText).data;
-         const page = document.getElementById('edit-user');
+// HTTP PUT request
+easyHTTP.prototype.put = function(url, data, callback){
 
-         console.log(response);
+   this.http.open('PUT', url, true)
 
-         page.querySelector('.user-name').innerHTML = `${response.firstName.toUpperCase()} ${response.lastName.toUpperCase()}`
+   this.http.setRequestHeader('Content-type', 'application/json');
 
-         page.querySelector('[name="email"]').value = `${response.email}`
-         page.querySelector('[name="name"]').value = `${response.firstName}`
-         page.querySelector('[name="lName"]').value = `${response.lastName}`
-         page.querySelector('[name="password"]').value = `${response.password}`
-         page.querySelector('[name="role"]').value = `${response.role.toLowerCase()}`
-         // page.querySelector('[name="term"]').value = `${response.term_id}`
-         // page.querySelector('[name="class"]').value = `${response.class.toLowerCase()}`
+   let self = this;
+   this.http.onload = function() {
+      if(self.http.status === 200){
+         callback(JSON.parse(self.http.responseText));
+      }
+   }
+      
+   this.http.send(JSON.stringify(data))
+}
 
-         page.querySelectorAll('select').forEach(function(e){
-            selectChange(e)
-         })
+// HTTP DELETE request
+easyHTTP.prototype.delete = function(url, callback){
 
-         // selectChange(document.page.querySelectorAll('.test-select'))
-      } 
+   this.http.open('DELETE', url, true);
+
+   let self = this;
+   this.http.onload = function() {
+      if(self.http.status === 200){
+         callback(JSON.parse(self.http.responseText));
+      }
    }
 
-   xhr.send()
+   this.http.send();
 }
 
-function populateViewUsers(users){
+const http = new easyHTTP;
+
+//Populate view all
+
+function populateViewUsers(){
+
+   http.get('https://mayalingo.jedburghco.com/api/pages/users/viewall', function(usersData){
+
+   const users = usersData.data;
+   const languages = usersData.languagesData;
+   const terms = usersData.termsData;
+   
    const table = document.getElementById('view-users-table')
    table.innerHTML = '';
    
    users.forEach(function(e){
 
-      e.language_id
+      const userTerm = e.term_id
+      const userLanguages = e.languages_id
+
+      let languageHtml = '';
+      let termHtml = terms.find(x => x.id === userTerm).name;
+
+      userLanguages.forEach(function(e){
+         languageHtml += languages.find(x => x.id === e).name
+      })
+
 
       table.innerHTML += `<div  class="custom-table-row">
       <div class="first-col table-column">
@@ -101,7 +110,7 @@ function populateViewUsers(users){
          <p>${e.email}</p>
       </div>
       <div class="table-column">
-         <p>${e.term}</p>
+         <p>${termHtml}</p>
       </div>
       <div class="table-column">
          <p>${e.title}</p>
@@ -110,7 +119,7 @@ function populateViewUsers(users){
          <p>${e.lastLogin}</p>
       </div>
       <div class="table-column hidden">
-         <p>${e.language_id}</p>
+         <p>${languageHtml}</p>
       </div>
 
    </div>`
@@ -134,39 +143,211 @@ function populateViewUsers(users){
 
       })
    })
+
+})
 }
 
-function usersAdd(){
+//Edit User
+function editUser(id){
 
-   const xhr = new XMLHttpRequest();
+   http.get(`https://mayalingo.jedburghco.com/api/pages/users/edit/${id}`, function(user){
 
-   xhr.open('GET', 'http://3.217.89.121:10550/api/pages/class/viewall', true);
+      const page = document.getElementById('edit-user');
+      page.setAttribute('user', id)
+      const response = user.data;
+      const terms = user.termsData;
+      const classes = user.classes;
 
-   xhr.onload = function(){
+      const userTerm = terms.find(x => x.id === response.term_id).name
+      let userClasses = ''
+      
+      classes.forEach(function(e){
+         // userClasses += classes.find(x => x.id === response.class_id).name
+         userClasses += classes.find(x => x.id === 2).name
+         
+      })
 
-      if(this.status === 200){
-         const response = JSON.parse(this.responseText);
+      
+      page.querySelector('.user-name').innerHTML = `${response.firstName.toUpperCase()} ${response.lastName.toUpperCase()}`
 
-         const users = response
+      page.querySelector('[name="email"]').value = `${response.email}`
+      page.querySelector('[name="name"]').value = `${response.firstName}`
+      page.querySelector('[name="lName"]').value = `${response.lastName}`
+      page.querySelector('[name="password"]').value = `${response.password}`
+      page.querySelector('[name="role"]').value = `${response.role.toLowerCase()}`
+      page.querySelector('[name="term"]').value = `${userTerm}`
+      page.querySelector('[name="class"]').value = `${userClasses}`
 
-         console.log(users);
+      page.querySelectorAll('select').forEach(function(e){
+         selectChange(e)
+      })
 
-      } 
-   }
+   })
 
-   xhr.send()
+      // selectChange(document.page.querySelectorAll('.test-select'))
+   
+
+}
+
+// Save user
+function saveUser(){
+
+   const page = document.getElementById('edit-user')
+
+   const email = page.querySelector('[name=email]').value
+   const name = page.querySelector('[name=name]').value
+   const lName = page.querySelector('[name=lName]').value
+   const role = page.querySelector('[name=role]').value
+   const password = page.querySelector('[name=password]').value
+   const term = page.querySelector('[name=term]').value
+   const userClass = page.querySelector('[name=class]').value
+   const notify = page.querySelector('[name=notify]').checked
+   const id = page.getAttribute('user');
+
+   const user = {
+      "id":`${id}`,
+      "email":`${email}`,
+      "firstName":`${name}`,
+      "lastName":`${lName}`,
+      "role":`${role}`,
+      "term_id":`${term}`,
+      "class_id":`${userClass}`,
+      "password":`${password}`,
+      "isSendEmail":`${notify}`
+   } 
+
+   http.put('https://mayalingo.jedburghco.com/api/users', user, '')
+
+   console.log(user);
+
+}
+
+// Add User
+function addUser(){
+
+   const page = document.getElementById('add-user');
+
+   const email = page.querySelector('[name=email]').value
+   const name = page.querySelector('[name=name]').value
+   const lName = page.querySelector('[name=lName]').value
+   const role = page.querySelector('[name=role]').value
+   const password = page.querySelector('[name=password]').value
+   const term = page.querySelector('[name=term]').value
+   const userClass = page.querySelector('[name=class]').value
+   const notify = page.querySelector('[name=notify]').checked
+
+   const user = {
+      "email":`${email}`,
+      "firstName":`${name}`,
+      "lastName":`${lName}`,
+      "role":`${role}`,
+      "term_id":`${term}`,
+      "class_id":`${userClass}`,
+      "password":`${password}`,
+      "isSendEmail":`${notify}`
+   }  
+
+   http.post('https://mayalingo.jedburghco.com/api/users', user, '')
+
+console.log(user);
+
+}
+
+// Populate view all classes
+function populateViewClasses(){
+
+   http.get('https://mayalingo.jedburghco.com/api/pages/class/viewall', function(data){
+
+      const classes = data.data;
+      
+      const table = document.getElementById('manage-classes-table')
+      table.innerHTML = '';
+      
+      classes.forEach(function(e){
+   
+         // const userTerm = e.term.name
+         // const userLanguages = e.languages_id
+   
+         // let languageHtml = '';
+         // let termHtml = terms.find(x => x.id === userTerm).name;
+   
+         // userLanguages.forEach(function(e){
+         //    languageHtml += languages.find(x => x.id === e).name
+         // })
+   
+   
+         table.innerHTML +=`<div class="custom-table-row">
+         <div class="first-col table-column">
+            <label class="checkbox-container">
+               <input type="checkbox">
+               <span class="checkmark"></span>
+             </label>
+         </div>
+         <div class="table-column">
+            <p data-bs-toggle="modal" class-id="${e.id}" data-bs-target="#edit-class-modal" class="edit-class">
+               ${e.department.name}
+            </p>
+         </div>
+         <div class="table-column">
+            <p>${e.language.name}</p>
+         </div>
+         <div class="table-column">
+            <p>${e.term.name}</p>
+         </div>
+         <div class="table-column">
+            <p>${e.teamLead.firstName} ${e.teamLead.lastName}</p>
+         </div>
+         <div class="table-column">
+            <p>${e.usersInClass.length}</p>
+         </div>
+
+      </div>`
+      })
+
+      document.querySelectorAll('.edit-class').forEach(function(e){
+
+         e.addEventListener('click', function(e){
+            let classId = e.target.getAttribute('class-id');
+
+            editClass(classId);
+         })
+      })
+   })
+}
+
+// Edit class GET
+function editClass(id){
+
+   http.get(`https://mayalingo.jedburghco.com/api/pages/class/viewall`, function(data){
+
+      const chosenClass = data.data.find(x => x.id === id)
+
+      const page = document.getElementById('edit-class-modal');
+      const users = chosenClass.usersInClass
+
+      console.log(chosenClass);
+
+      page.setAttribute('class-id', id)
+      
+      
+      // page.querySelector('.user-name').innerHTML = `${response.firstName.toUpperCase()} ${response.lastName.toUpperCase()}`
+
+      page.querySelector('[name="department"]').value = `${chosenClass.department.name}`
+      page.querySelector('[name="name"]').value = `${chosenClass.name}`
+      page.querySelector('[name="instructor"]').value = `${chosenClass.instructor.id}`
+      page.querySelector('[name="team-lead"]').value = `${chosenClass.teamLead.id}`
+      page.querySelector('[name="language"]').value = `${chosenClass.language.id}`
+
+   })
+
+      // selectChange(document.page.querySelectorAll('.test-select'))
+   
 
 }
 
 function onLoad(){
 
-   getUsers();
-
-   // getTeachingData();
-
+   populateViewUsers()
 }
 
-
-
-window.addEventListener('load', onLoad())
-
+onLoad()
