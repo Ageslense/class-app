@@ -167,6 +167,8 @@ function openSelect(element){
 
 function selectChange(e){
   
-  e.parentElement.querySelector('.select-selected').textContent = e.value.toUpperCase()
+  e.parentElement.querySelector('.select-selected').innerHTML = e.value.toUpperCase()
+
+  console.log(e.value);
 
 }

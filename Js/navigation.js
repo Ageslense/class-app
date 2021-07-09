@@ -20,6 +20,7 @@ document.querySelectorAll(".main-nav-item").forEach(function(element){
 
          case 'teaching-toggler':
             tabID = '#teaching';
+            getTeaching()
             break;
 
          case 'home-toggler':
@@ -122,6 +123,10 @@ document.querySelectorAll('.add-dept-btn').forEach(function(e){
             input.classList.remove('active');
             e.target.classList.remove('active');
             e.target.textContent = '+';
+            const department = {"name": `${input.value}`}
+
+            http.post('http://3.217.89.121:10550/api/classes/addDepartment', department)
+            input.value = ''
             break;
       }
    })
@@ -138,6 +143,11 @@ document.querySelectorAll('.add-dept-input').forEach(function(e){
          e.target.classList.remove('active')
          btn.textContent = '+'
          btn.classList.remove('active')
+         const department = {"name": `${e.target.value}`}
+
+
+         http.post('http://3.217.89.121:10550/api/classes/addDepartment', department)
+         e.target.value = ''
       }
    })
 })
@@ -318,7 +328,6 @@ document.querySelectorAll('[typefilter]').forEach(function(e){
    e.addEventListener('change', function(e){
 
       const target = e.target.getAttribute('typefilter')
-      console.log(target);
 
       teachingFilter(e, target)
    })
@@ -393,7 +402,6 @@ async function filterTableByCheckboxMulti(target, filter){
 
    await items.forEach(function(e){
 
-      console.log(e.textContent.toLowerCase());
       if(e.textContent.toLowerCase().indexOf(filter) != -1){
          e.parentElement.parentElement.setAttribute(attr, 1)
       } 
@@ -610,6 +618,16 @@ function sortTable(e, ascending){
    })
 
 }
+
+document.querySelector('.post-class-btn').addEventListener('click', function(){
+
+   postClass()
+})
+
+document.querySelector('.edit-class-save-btn').addEventListener('click', function(){
+
+   putClass()
+})
 
 document.querySelector('.add-new-user-btn').addEventListener('click', function(){
    addUser()
